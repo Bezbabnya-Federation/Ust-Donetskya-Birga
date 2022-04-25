@@ -674,17 +674,19 @@
 			}
 		}
 	}
-"test_ability"
+"dead on paper"
     {
         "BaseClass"                     "ability_datadriven" // Не меняй
         "AbilityTextureName"            "ability_name" // Название иконки разрешение 128х128
         "MaxLevel"                         "4" // Максимальный Уровень способности.
         "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET" // Как будет работать или накого? Для новичка проще чтобы она работала на цель
-        "AbilityUnitTargetTeam"            "DOTA_UNIT_TARGET_TEAM_ENEMY" // На какую команду работает, если у тебя не один а два разделяй их так DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_BOTH
+        "AbilityUnitTargetTeam"            "DOTA_UNIT_TARGET_TEAM_BOTH" // На какую команду работает, если у тебя не один а два разделяй их так DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_BOTH
         "AbilityUnitTargetType"            "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" // На кого будет способность работать
         "AbilityUnitDamageType"            "DAMAGE_TYPE_MAGICAL" // какой тип урона будет наносить урон
         "AbilityCastRange"                "500 600 700 800" // Максимальный радиус каста(применение) способности
         "AbilityDamage"                    "100 150 200 250" // Урон способности
+        "AbilityCooldown"				"8.0"
+        "AbilityManaCost"				"100"
         "OnSpellStart" // Когда ты выбрал цель и нажал. То давай просто нанесёт урон.
         {
             "Damage"
