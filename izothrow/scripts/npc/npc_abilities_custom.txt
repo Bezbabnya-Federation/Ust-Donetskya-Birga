@@ -1,4 +1,3 @@
-// Dota Heroes File
 "DOTAAbilities"
 {
 	"Version"       "1"
@@ -628,6 +627,7 @@
 			}
 		}
 	}
+
 	"pendulum_trap"
 	{
 		"BaseClass"           			"ability_lua"
@@ -674,7 +674,8 @@
 			}
 		}
 	}
-"dead on paper"
+
+	"dead on paper"
     {
         "BaseClass"                     "ability_datadriven" // Не меняй
         "AbilityTextureName"            "ability_name" // Название иконки разрешение 128х128
@@ -697,4 +698,209 @@
             }
         }
     }
+
+	// ИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУ
+// ИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУ
+// ИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУ
+// ИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУ
+// ИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУ
+
+//Sirotkin's ability
+"vine_creator"
+    {
+        "BaseClass"                     "ability_datadriven"
+
+        "AbilityTextureName"            "dota_ability_vine_creator_icon"
+        "MaxLevel"                      "4"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+
+        "AbilityCastRange"              "400"
+		"AbilityCastPoint"      		"0.0"
+		"AbilityCastAnimation"  		"ACT_DOTA_ATTACK"
+
+        "AbilityDamage"                 "100 150 200 250"
+
+        "AbilityCooldown"				"8.0"
+        "AbilityManaCost"				"100"
+
+		"AnimationPlaybackRate"  		"1"
+		"AnimationIgnoresModelScale" 	"1"
+
+        "OnSpellStart" 
+        {
+            "Damage"
+            {
+                "Target"        "TARGET"
+                "Type"            "DAMAGE_TYPE_MAGICAL"
+                "Damage"        "%AbilityDamage"
+            }
+        }
+    }
+
+"vine_drinker"
+	{
+		"BaseClass"                     "ability_datadriven"
+        "AbilityTextureName"            "dota_ability_vine_drinker_icon"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"dodge_chance"				"10 15 20 25"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_chance"				"10 15 20 25"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_multiplier"			"200"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"last_proc"			"16 14 12 10"
+			}
+		}
+
+        "MaxLevel"                      "4"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_BOTH"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+
+        "AbilityCastRange"              "400"
+        "AbilityDamage"                 "100 150 200 250"
+        "AbilityCooldown"				"8.0"
+        "AbilityManaCost"				"100"
+
+		"AnimationPlaybackRate"  		"1"
+		"AnimationIgnoresModelScale" 	"1"
+	}
+
+	"goodbye"
+    {
+        "BaseClass"                     "ability_datadriven"
+
+        "AbilityTextureName"            "dota_ability_goodbye_icon"
+        "MaxLevel"                      "4"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+
+        "AbilityCastRange"              "400"
+		"AbilityCastPoint"      		"0.0"
+		"AbilityCastAnimation"  		"ACT_DOTA_ATTACK"
+
+        "AbilityDamage"                 "100 150 200 250"
+
+        "AbilityCooldown"				"8.0"
+        "AbilityManaCost"				"100"
+
+		"AnimationPlaybackRate"  		"1"
+		"AnimationIgnoresModelScale" 	"1"
+
+        "OnSpellStart" 
+        {
+            "Damage"
+            {
+                "Target"        "TARGET"
+                "Type"            "DAMAGE_TYPE_MAGICAL"
+                "Damage"        "%AbilityDamage"
+            }
+        }
+    }
+
+	"teachers_life"
+	{
+        "BaseClass"                     "ability_datadriven"										
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"cast_range"				"100 150 200 250"
+			}
+
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"spell_amp"			"14 18 22 26"
+			}
+		}
+	}
+
+	"feminism"
+	{
+		"BaseClass"                     "ability_datadriven"
+        "AbilityTextureName"            "dota_ability_feminism_icon"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Tusk.WalrusPunch.Target"
+
+		"HasScepterUpgrade"			"1"
+		"AbilityDraftUltScepterAbility"		"tusk_walrus_kick"
+
+		"AbilityCastPoint"				"0"
+		"AbilityCastRange"				"150"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+		"AbilityCooldown"				"20 15 10"
+		"AbilityManaCost"				"75"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_multiplier"			"300 350 400"
+				"LinkedSpecialBonus"		"special_bonus_unique_tusk"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"air_time"					"1.0"
+				"LinkedSpecialBonus"		"special_bonus_unique_tusk_7"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"slow_duration"				"2.0 3.0 4.0"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"move_slow"					"40"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"push_length"				"1000"
+			}
+		}
+	}
+	//Sirotkin's Ability End
+
 }

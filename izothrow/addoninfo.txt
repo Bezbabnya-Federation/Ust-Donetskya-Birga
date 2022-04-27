@@ -5,24 +5,12 @@
 	map_options = 
 	[
 		{
-			MaxPlayers = 16
-			map = "temple_quartet"
-		},
-		{
 			MaxPlayers = 10
 			map = "desert_quintet"
 		},
 		{
 			MaxPlayers = 10
 			map = "forest_solo"
-		},
-		{
-			MaxPlayers = 10
-			map = "desert_duo"
-		},
-		{
-			MaxPlayers = 9
-			map = "mines_trio"
 		},
 	]
 }

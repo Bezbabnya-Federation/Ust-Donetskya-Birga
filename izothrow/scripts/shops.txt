@@ -165,7 +165,11 @@
 		"item"		"item_greater_crit"
 		"item"		"item_butterfly"
 		"item"		"item_rapier"
-		"item"		"item_abyssal_blade"	
+		"item"		"item_abyssal_blade"
+		"item"		"item_brusco_minican"
+		"item"		"item_smoant_battlestar"
+		"item"		"item_smoant_pasito2"
+		"item"		"item_aegis_boost"	
 					
 					
 	}

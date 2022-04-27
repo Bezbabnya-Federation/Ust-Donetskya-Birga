@@ -1,12 +1,8 @@
 
-// Dota Abilities Override File
 "DOTAAbilities"
 {
 	"Version"		"1"
-	
-	//=================================================================================================================
-	// Special Item Drops
-	//=================================================================================================================
+
 	"item_urn_of_shadows"
 	{
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -215,40 +211,8 @@
 	{
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 	}
-	//=================================================================================================================
-	// Remove Dagon
-	//=================================================================================================================
-	"item_dagon"
-	{
-		"ItemPurchasable"				"0"
-	}
-	"item_dagon_1"
-	{
-		"ItemPurchasable"				"0"
-	}
-	"item_dagon_2"
-	{
-		"ItemPurchasable"				"0"
-	}
-	"item_dagon_3"
-	{
-		"ItemPurchasable"				"0"
-	}
-	"item_dagon_4"
-	{
-		"ItemPurchasable"				"0"
-	}
-	"item_dagon_5"
-	{
-		"ItemPurchasable"				"0"
-	}
-	"item_recipe_dagon"
-	{
-		"ItemPurchasable"				"0"
-	}
-	//=================================================================================================================
-	// Sentry Ward
-	//=================================================================================================================
+	
+
 	"item_ward_sentry"
 	{
 		"ItemCost"						"100"
@@ -281,17 +245,13 @@
 			}
 		}
 	}
-	//=================================================================================================================
-	// Dust
-	//=================================================================================================================
+
 	"item_dust"
 	{
 		"AbilityCooldown"				"15.0"
 		"ItemCost"						"90"
 	}
-	//=================================================================================================================
-	// Silencer: Glaives of Wisdom
-	//=================================================================================================================
+	
 	"silencer_glaives_of_wisdom"
 	{
 		"AbilitySpecial"
@@ -308,199 +268,23 @@
 			}
 		}
 	}
-	//=================================================================================================================
-	// Ability: Necrolyte's Reaper's Scythe
-	//=================================================================================================================
-	"necrolyte_reapers_scythe"
+
+	"item_flying_courier"
 	{
-		"AbilitySpecial"
-		{
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"respawn_constant"		"20"
-			}
-		}
+		"ItemStockInitial"				"1"
+		"ItemStockTime"					"0.1"
 	}
-	//=================================================================================================================
-	// Zuus: Thundergod's Wrath
-	//=================================================================================================================
-	"zuus_thundergods_wrath"
+  
+    "item_aghanims_shard"
 	{
-		"AbilityCooldown"				"120.0"
-		"AbilityManaCost"				"250 375 500"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"true_sight_radius"		"900 900 900"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"true_sight_radius_tooltip"		"500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"sight_radius_day"		"500"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"sight_radius_night"	"500"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"sight_duration"		"3.0 3.0 3.0 3.0"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 300 400"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_scepter"		"350 450 550"
-			}
-		}
-	}
-	//=================================================================================================================
-	// Riki: Blink Strike
-	//=================================================================================================================
-	"riki_blink_strike"
-	{
-		"AbilityCastRange"				"400"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"tooltip_range"					"350"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"					"10 20 30 40"
-			}
-		}
-	}
-	//=================================================================================================================
-	// Riki: Permanent Invisibility
-	//=================================================================================================================
-	"riki_permanent_invisibility"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"damage_multiplier"				"0.4 0.6 0.8 1.0"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"backstab_angle"				"105 105 105 105"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"fade_time"					"2.0 1.5 1.0 0.5"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"fade_delay"				"16.0 12.0 8.0 4.0"
-			}
-		}
-	}
-	//=================================================================================================================
-	// Bounty Hunter: Wind Walk
-	//=================================================================================================================
-	"bounty_hunter_wind_walk"
-	{
-		"AbilityCooldown"				"20.0 20.0 20.0 20.0"
-		"AbilityManaCost"				"100 90 80 70"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"10.0 12.0 15.0 18.0"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"fade_time"					"2.0 1.5 1.0 0.5"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"20 30 40 50"
-			}
-		}
+		"ItemStockTime"					"1"			  
+		"ItemStockInitial"				"1"
+		"ItemInitialStockTime"			"0.1"
 	}
 
-	//=================================================================================================================
-	// Ability: Pudge Flesh Heap
-	//=================================================================================================================
-	"pudge_flesh_heap"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"flesh_heap_magic_resist"		"6 8 10 12"
-			}
-			"02"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"flesh_heap_strength_buff_amount"	"0.5 0.75 1.0 1.25"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"flesh_heap_range"		"225"
-			}
-		}
-	}
-	//=================================================================================================================
-	// Obsidian Destroyer: Arcane Orb
-	//=================================================================================================================
-	"obsidian_destroyer_arcane_orb"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_pool_damage_pct"	"5 6 7 8"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"illusion_damage"		"100 200 300 400"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"int_steal"		"1 2 3 4"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"int_steal_duration"		"15"
-			}
-		}
-	}
-
-//=========================================================================================================
-//Изотов
-//=========================================================================================================
+	//=========================================================================================================
+	//Изотов
+	//=========================================================================================================
 
 	"skeleton_king_reincarnation"
 	{
@@ -513,34 +297,23 @@
 		"EffectAttachType"				"follow_origin"
 	}
 
-	 "kunkka_ghostship"
-	 {
-	 	"AbilityTextureName" 			"kursk"
-	 }
+	"kunkka_ghostship"
+	{
+		"AbilityTextureName" 			"kursk"
+	}
 
-	 "axe_berserkers_call"
-	 {
+	"axe_berserkers_call"
+	{
 	 	"AbilityTextureName" 			"pilotka"
-	 }
-
-	 "axe_counter_helix"
-	 {
-	 	"AbilityTextureName" 			"udance"
-	 }
-
-	 "item_flying_courier"
-	{
-		"ItemStockInitial"				"1"
-		"ItemStockTime"					"0.1"
-	}
-  
-
-    "item_aghanims_shard"
-	{
-		"ItemStockTime"					"1"			  
-		"ItemStockInitial"				"1"
-		"ItemInitialStockTime"			"0.1"
 	}
 
+	"axe_counter_helix"
+	{
+		"AbilityTextureName" 			"udance"
+	}
+
+	//=========================================================================================================
+	//Изотов End
+	//=========================================================================================================
 }
 

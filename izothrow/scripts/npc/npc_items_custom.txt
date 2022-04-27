@@ -66,4 +66,237 @@
 		"ItemKillable"					"0"
 		"ItemCastOnPickup"				"1"
 	}
+
+	"item_brusco_minican"
+	{
+		"ID"							"1003"
+		"BaseClass"						"item_datadriven"
+
+		"Model"							"models/props_gameplay/red_box.vmdl" 
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+	
+		"AbilityName"					"item_brusco_ability"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"brusco_minican"
+
+		"ItemCost"						"800"
+		"ItemPurchasable"				"1"
+		"ItemInitialCharges" 			"1"
+
+		"ItemStackable"					"1"
+		"ItemShareability"				"ITEM_PARTIALLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"ItemKillable"					"0"
+	}
+
+	"item_smoant_battlestar"
+	{
+		"ID"							"1003"
+		"BaseClass"						"item_datadriven"
+
+		"Model"							"models/props_gameplay/red_box.vmdl" 
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+	
+		"AbilityName"					"item_battlestar_ability"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"smoant_battlestar"
+
+		"ItemCost"						"1600"
+		"ItemPurchasable"				"1"
+		"ItemInitialCharges" 			"1"
+
+		"ItemStackable"					"1"
+		"ItemShareability"				"ITEM_PARTIALLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"ItemKillable"					"0"
+	}
+
+	"item_smoant_pasito2"
+	{
+		"ID"							"1004"
+		"BaseClass"						"item_datadriven"
+
+		"Model"							"models/props_gameplay/red_box.vmdl" 
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+	
+		"AbilityName"					"item_pasito2_ability"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"smoant_pasito2"
+
+		"ItemCost"						"2200"
+		"ItemPurchasable"				"1"
+		"ItemInitialCharges" 			"1"
+
+		"ItemStackable"					"1"
+		"ItemShareability"				"ITEM_PARTIALLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"ItemKillable"					"0"
+	}
+
+	"item_aegis_boost"
+	{
+		"ID"							"1005"
+		"BaseClass"						"item_datadriven"
+
+		"Model"							"models/props_gameplay/red_box.vmdl" 
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+	
+		"AbilityName"					"item_aegis_ability"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"aegis_boost"
+		
+		"ItemCost"						"3600"
+		"ItemPurchasable"				"1"
+		"ItemInitialCharges" 			"1"
+
+		"ItemShopTags"					"attack_speed; armor;hard_to_tag"
+		"ItemQuality"					"epic"
+
+		"ItemStackable"					"1"
+		"ItemShareability"				"ITEM_PARTIALLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"ItemKillable"					"0"
+
+			"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"40"
+			}
+
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"10"
+			}
+
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_radius"			"700"
+			}
+
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_attack_speed"		"25"
+			}
+
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_positive_armor"	"6"
+			}
+
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_negative_armor"	"-6"
+			}
+
+			"Modifiers"
+			{
+				"modifier_item_aegis_boost"
+				{
+					"Passive" "1"
+					"IsHidden" "0"
+					"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE"
+					"Properties"
+					{
+						"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
+						"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%bonus_armor"
+					}
+
+				}
+
+				"modifier_item_aegis_boost_ally_aura_emitter"
+				{
+					"Passive"				"1"
+					"IsHidden"				"1"
+					
+					"Aura" 					"modifier_item_aegis_boost_ally_aura"
+					"Aura_Radius" 			"%aura_radius"
+					"Aura_Teams" 			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+					"Aura_Types" 			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+					"Aura_Flags" 			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+					"Aura_ApplyToCaster" 	"1"
+				}
+
+				"modifier_item_aegis_boost_ally_aura"
+				{
+					"Passive"			"0"
+					"IsHidden"			"0"
+					
+					"Properties"
+					{
+						"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%aura_attack_speed"
+						"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%aura_positive_armor"
+					}
+				}
+
+				"modifier_item_aegis_boost_enemy_aura_emitter"
+				{
+					"Passive"				"1"
+					"IsHidden"				"1"
+					
+					"Aura" 					"modifier_item_aegis_boost_enemy_aura"
+					"Aura_Radius" 			"%aura_radius"
+					"Aura_Teams" 			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Aura_Types" 			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+					"Aura_Flags" 			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+					"Aura_ApplyToCaster" 	"0"
+				}
+
+				"modifier_item_aegis_boost_enemy_aura"
+				{
+					"Passive"				"0"
+					"IsHidden"				"1"
+					
+					"Properties"
+					{
+						"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%aura_negative_armor"
+					}
+					
+					"OnCreated"
+					{
+						"RunScript"
+						{
+							"ScriptFile"		"items/item_aegis_boost.lua"
+							"Function"			"modifier_item_aegis_boost_enemy_aura_on_interval_think"
+						}
+					}
+					
+					"ThinkInterval"				".03"
+
+					"OnIntervalThink"
+					{
+						"RunScript"
+						{
+							"ScriptFile"		"items/item_aegis_boost.lua"
+							"Function"			"modifier_item_aegis_boost_enemy_aura_on_interval_think"
+						}
+					}
+					
+					"OnDestroy"
+					{
+						"RunScript"
+						{
+							"ScriptFile"		"items/item_aegis_boost.lua"
+							"Function"			"modifier_item_aegis_boost_enemy_aura_on_destroy"
+						}
+					}
+				}
+
+				"modifier_item_aegis_boost_enemy_aura_visible"
+				{
+					"Passive"			"0"
+					"IsHidden"			"0"
+					"IsBuff"			"0"
+					"IsDebuff"			"1"
+					"IsPurgable"		"0"
+				}
+			}
+		}
+	}
 }

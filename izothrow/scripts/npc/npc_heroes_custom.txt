@@ -1,62 +1,95 @@
-// Dota Heroes File
-// NOTE: This is not for creating new heroes, this is for taking a currently existing hero as a template and overriding
-// the specified key-value combinations.  Use override_hero <hero_to_override> for this.
 "DOTAHeroes"
 {
   "npc_dota_hero_kunkka"
    {
-       "AbilityLayout"			  "6"
-       "override_hero"            "npc_dota_hero_kunkka"
-       "SoundSet"				  "hero_kunkka"
-       "Ability1"                "axe_berserkers_call"
-       "Ability2"                "axe_counter_helix"
-       "Ability3"				 "skeleton_king_reincarnation"
-       "VisionNighttimeRange"        "1800"                                    // Range of vision at night time.
+       "AbilityLayout"				"6"
+
+       "override_hero"				"npc_dota_hero_kunkka"
+
+       "SoundSet"					"hero_kunkka"
+
+       "Ability1"					"axe_berserkers_call"
+       "Ability2"					"axe_counter_helix"
+       "Ability3"					"skeleton_king_reincarnation"
+
+       "VisionNighttimeRange"       "1800"                                  
    }
 
    "npc_dota_hero_sniper"
    {
-       "AbilityLayout"			  "6"
-       "override_hero"            "npc_dota_hero_sniper"
-       "SoundSet"				  "hero_sniper"
-       "Ability1"                "bounty_hunter_wind_walk"
-       "Ability2"				"terrorblade_conjure_image"
-       "Ability3"				"abaddon_frostmourne"
-       "VisionNighttimeRange"        "1800"                                    // Range of vision at night time.
+       "AbilityLayout"				"6"
+
+       "override_hero"				"npc_dota_hero_sniper"
+
+       "SoundSet"					"hero_sniper"
+
+       "Ability1"					"bounty_hunter_wind_walk"
+       "Ability2"					"terrorblade_conjure_image"
+       "Ability3"					"abaddon_frostmourne"
+
+       "VisionNighttimeRange"		"1800"                                  
+   }
+
+   "npc_dota_hero_brewmaster"
+   {
+		"AbilityLayout"				"6"
+
+		"override_hero"				"npc_dota_hero_brewmaster"
+
+		"SoundSet"				 	"hero_brewmaster"
+
+		"Ability1"					"vine_creator"
+		"Ability2"					"vine_drinker"
+		"Ability3"					"goodbye"									
+		"Ability4"					"teachers_life"													
+		"Ability5"					"feminism"	
+		
+		"VisionNighttimeRange"      "1800"
    }
 
    "npc_dota_hero_undying"
    {
-       "AbilityLayout"			  "6"
-       "override_hero"           "npc_dota_hero_undying"
-       "SoundSet"				  "hero_undying"
-      	"Ability2"				"pudge_rot"
-       "VisionNighttimeRange"        "1800"                                    // Range of vision at night time.
+		"AbilityLayout"			  	"6"
+
+		"override_hero"           	"npc_dota_hero_undying"
+
+		"SoundSet"				  	"hero_undying"
+		
+		"Ability2"					"pudge_rot"
+
+		"VisionNighttimeRange"      "1800"                                
    }
 
    "npc_dota_hero_antimage"
    {
-       "AbilityLayout"			  "6"
-       "override_hero"           "models/heroes/antimage_female/antimage_female.vmdl"
-       "SoundSet"				  "hero_antimage"
-       "Ability2"		"pudge_meat_hook"
-       "Ability3"		"meepo_earthbind"
-       "VisionNighttimeRange"        "1800"                                    // Range of vision at night time.
+       "AbilityLayout"			  	"6"
+
+       "override_hero"           	"models/heroes/antimage_female/antimage_female.vmdl"
+
+       "SoundSet"				  	"hero_antimage"
+
+       "Ability2"					"pudge_meat_hook"
+       "Ability3"					"meepo_earthbind"
+
+       "VisionNighttimeRange"       "1800"                                    
    }
 
 
    "npc_dota_hero_techies"
    {
-       "AbilityLayout"			  "6"
-       "DisableWearables" "1"
-       "model"   "models/items/techies/techies_ti9_immortal_remote_mine/techies_ti9_immortal_remote_mine.vmdl"
-       "ModelScale"		"0.600000"
-		"VersusScale"		"0.650000"
-		"LoadoutScale"		"0.600000"
-       "SoundSet"				  "hero_antimage"
-       "Ability2"		"gyrocopter_homing_missile"
-       "Ability3"		"techies_suicide"
+		"AbilityLayout"			  	"6"
+		"DisableWearables" 			"1"
+		"model"   					"models/items/techies/techies_ti9_immortal_remote_mine/techies_ti9_immortal_remote_mine.vmdl"
+
+		"ModelScale"					"0.600000"
+		"VersusScale"				"0.650000"
+		"LoadoutScale"				"0.600000"
+
+		"SoundSet"				  	"hero_antimage"
+		
+		"Ability2"					"gyrocopter_homing_missile"
+		"Ability3"					"techies_suicide"
        
-       "VisionNighttimeRange"        "1800"                                    // Range of vision at night time.
+		"VisionNighttimeRange"       "1800"
    }
 }
