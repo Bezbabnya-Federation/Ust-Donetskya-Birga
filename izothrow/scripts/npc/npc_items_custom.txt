@@ -77,7 +77,7 @@
 	
 		"AbilityName"					"item_brusco_ability"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"brusco_minican"
+		"AbilityTextureName"			"minican"
 
 		"ItemCost"						"800"
 		"ItemPurchasable"				"1"
@@ -91,7 +91,7 @@
 
 	"item_smoant_battlestar"
 	{
-		"ID"							"1003"
+		"ID"							"1004"
 		"BaseClass"						"item_datadriven"
 
 		"Model"							"models/props_gameplay/red_box.vmdl" 
@@ -99,7 +99,7 @@
 	
 		"AbilityName"					"item_battlestar_ability"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"smoant_battlestar"
+		"AbilityTextureName"			"battlestar"
 
 		"ItemCost"						"1600"
 		"ItemPurchasable"				"1"
@@ -113,7 +113,7 @@
 
 	"item_smoant_pasito2"
 	{
-		"ID"							"1004"
+		"ID"							"1005"
 		"BaseClass"						"item_datadriven"
 
 		"Model"							"models/props_gameplay/red_box.vmdl" 
@@ -121,7 +121,7 @@
 	
 		"AbilityName"					"item_pasito2_ability"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"smoant_pasito2"
+		"AbilityTextureName"			"pasito2"
 
 		"ItemCost"						"2200"
 		"ItemPurchasable"				"1"
@@ -135,7 +135,7 @@
 
 	"item_aegis_boost"
 	{
-		"ID"							"1005"
+		"ID"							"1006"
 		"BaseClass"						"item_datadriven"
 
 		"Model"							"models/props_gameplay/red_box.vmdl" 
