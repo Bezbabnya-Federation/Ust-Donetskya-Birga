@@ -710,7 +710,7 @@
     {
         "BaseClass"                     "ability_datadriven"
 
-        "AbilityTextureName"            "dota_ability_vine_creator_icon"
+        "AbilityTextureName"            "vine_creator"
         "MaxLevel"                      "4"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -745,7 +745,7 @@
 "vine_drinker"
 	{
 		"BaseClass"                     "ability_datadriven"
-        "AbilityTextureName"            "dota_ability_vine_drinker_icon"
+        "AbilityTextureName"            "vine_drinker"
 
 		"AbilitySpecial"
 		{
@@ -792,7 +792,7 @@
     {
         "BaseClass"                     "ability_datadriven"
 
-        "AbilityTextureName"            "dota_ability_goodbye_icon"
+        "AbilityTextureName"            "goodbye"
         "MaxLevel"                      "4"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -826,7 +826,8 @@
 
 	"teachers_life"
 	{
-        "BaseClass"                     "ability_datadriven"										
+        "BaseClass"                     "ability_datadriven"
+		"AbilityTextureName"            "teachers_life"									
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"AbilitySpecial"
@@ -848,7 +849,7 @@
 	"feminism"
 	{
 		"BaseClass"                     "ability_datadriven"
-        "AbilityTextureName"            "dota_ability_feminism_icon"
+        "AbilityTextureName"            "feminism"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"

@@ -89,7 +89,7 @@
 		"ItemKillable"					"0"
 	}
 
-	"item_smoant_battlestar"
+	"item_battlestar"
 	{
 		"ID"							"1004"
 		"BaseClass"						"item_datadriven"
@@ -111,7 +111,7 @@
 		"ItemKillable"					"0"
 	}
 
-	"item_smoant_pasito2"
+	"item_pasito2"
 	{
 		"ID"							"1005"
 		"BaseClass"						"item_datadriven"
