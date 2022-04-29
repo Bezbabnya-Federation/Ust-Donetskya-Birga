@@ -288,7 +288,7 @@
 
 	"skeleton_king_reincarnation"
 	{
-		"AbilityTextureName" 			"voin"
+		"AbilityTextureName" 			"Izotov/voin"
 	}
 
 	"axe_counter_helix"
@@ -299,17 +299,17 @@
 
 	"kunkka_ghostship"
 	{
-		"AbilityTextureName" 			"kursk"
+		"AbilityTextureName" 			"Izotov/kursk"
 	}
 
 	"axe_berserkers_call"
 	{
-	 	"AbilityTextureName" 			"pilotka"
+	 	"AbilityTextureName" 			"Izotov/pilotka"
 	}
 
 	"axe_counter_helix"
 	{
-		"AbilityTextureName" 			"udance"
+		"AbilityTextureName" 			"Izotov/udance"
 	}
 
 	//=========================================================================================================

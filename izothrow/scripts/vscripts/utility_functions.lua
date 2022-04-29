@@ -1,8 +1,3 @@
---[[ utility_functions.lua ]]
-
----------------------------------------------------------------------------
--- Handle messages
----------------------------------------------------------------------------
 function BroadcastMessage( sMessage, fDuration )
     local centerMessage = {
         message = sMessage,

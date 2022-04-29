@@ -590,4 +590,115 @@
 		//----------------------------------------------------------------
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 	}
+
+	//
+	//
+	//
+
+	"npc_izotov_urod"
+	{
+        "BaseClass"             	"npc_dota_creature"
+
+        "Model"                		"models/heroes/undying/undying.vmdl"
+        "ModelScale"           	 	"0.6"
+
+		"SoundSet"					"Hero_Undying"
+
+        "Level"                 	"50"
+        "HasInventory"          	"0"
+        "ArmorPhysical"         	"7"
+        "MagicalResistance"     	"25"
+
+        "AttackCapabilities"    	"DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"      	"DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"      		"1"
+        "AttackDamageMax"      		"1"
+        "AttackRate"            	"1.7"
+        "AttackAnimationPoint"  	"0.3"
+        "AttackAcquisitionRange" 	"500"
+        "AttackRange"           	"128"
+
+        "BountyGoldMin"         	"25"
+        "BountyGoldMax"         	"25"
+
+		"RingRadius"				"70"
+		"HealthBarOffset"			"160"
+		"BaseAttackSpeed"			"215"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"	
+
+        "MovementCapabilities"  	"DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"         	"375"
+        "MovementTurnRate"     		"0.4"
+
+        "StatusHealth"          	"1"
+        "StatusHealthRegen"     	"0"
+        "StatusMana"            	"0"
+        "StatusManaRegen"       	"0"
+
+        "VisionDaytimeRange"    	"600"
+        "VisionNighttimeRange"  	"300"
+
+        "TeamName"             		"DOTA_TEAM_NEUTRALS"
+
+        "CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+        "AutoAttacksByDefault"  	"1"
+        "IsSummoned"            	"1"
+	}
+
+	"npc_izotov_mega_urod"
+	{
+        "BaseClass"             	"npc_dota_creature"
+
+        "Model"                 	"models/items/undying/flesh_golem/incurable_pestilence_golem/incurable_pestilence_golem.vmdl"
+        "ModelScale"            	"0.6"
+
+		"SoundSet"					"Hero_Undying"
+
+        "Level"                 	"50"
+        "HasInventory"          	"0"
+        "ArmorPhysical"         	"15"
+        "MagicalResistance"     	"30"
+
+        "AttackCapabilities"    	"DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"      	"DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"       	"1"
+        "AttackDamageMax"       	"1"
+        "AttackRate"            	"1.7"
+        "AttackAnimationPoint"  	"0.3"
+        "AttackAcquisitionRange"	"500"
+        "AttackRange"           	"128"
+
+        "BaseAttackSpeed"			"100"
+
+        "BountyGoldMin"         	"50"
+        "BountyGoldMax"         	"50"
+	
+		"RingRadius"				"70"
+		"HealthBarOffset"			"160"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"	
+        "MovementCapabilities"  	"DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"         	"375"
+        "MovementTurnRate"      	"0.4"
+
+        "StatusHealth"          	"1"
+        "StatusHealthRegen"     	"0"
+        "StatusMana"            	"0"
+        "StatusManaRegen"       	"0"
+
+        "VisionDaytimeRange"    	"600"
+        "VisionNighttimeRange"  	"300"
+
+        "TeamName"              	"DOTA_TEAM_NEUTRALS"
+
+        "CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+
+        "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "AutoAttacksByDefault"  	"1"
+        "IsSummoned"            	"1"
+	}
 }	

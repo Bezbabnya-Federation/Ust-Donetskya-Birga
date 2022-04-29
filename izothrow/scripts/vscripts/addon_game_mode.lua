@@ -1,38 +1,22 @@
---[[
-Overthrow Game Mode
-]]
-
 _G.nNEUTRAL_TEAM = 4
 _G.nCOUNTDOWNTIMER = 901
 
-
----------------------------------------------------------------------------
--- COverthrowGameMode class
----------------------------------------------------------------------------
 if COverthrowGameMode == nil then
-	_G.COverthrowGameMode = class({}) -- put COverthrowGameMode in the global scope
-	--refer to: http://stackoverflow.com/questions/6586145/lua-require-with-global-local
+	_G.COverthrowGameMode = class({})
 end
 
----------------------------------------------------------------------------
--- Required .lua files
----------------------------------------------------------------------------
 require( "events" )
 require( "items" )
 require( "utility_functions" )
 
----------------------------------------------------------------------------
--- Precache
----------------------------------------------------------------------------
 function Precache( context )
-	--Cache the gold bags
+
 		PrecacheItemByNameSync( "item_bag_of_gold", context )
 		PrecacheResource( "particle", "particles/items2_fx/veil_of_discord.vpcf", context )	
 
 		PrecacheItemByNameSync( "item_treasure_chest", context )
 		PrecacheModel( "item_treasure_chest", context )
 
-	--Cache the creature models
 		PrecacheUnitByNameSync( "npc_dota_creature_basic_zombie", context )
         PrecacheModel( "npc_dota_creature_basic_zombie", context )
 
@@ -42,7 +26,6 @@ function Precache( context )
         PrecacheUnitByNameSync( "npc_dota_treasure_courier", context )
         PrecacheModel( "npc_dota_treasure_courier", context )
 
-    --Cache new particles
        	PrecacheResource( "particle", "particles/econ/events/nexon_hero_compendium_2014/teleport_end_nexon_hero_cp_2014.vpcf", context )
        	PrecacheResource( "particle", "particles/leader/leader_overhead.vpcf", context )
        	PrecacheResource( "particle", "particles/last_hit/last_hit.vpcf", context )
@@ -53,22 +36,12 @@ function Precache( context )
        	PrecacheResource( "particle", "particles/econ/wards/f2p/f2p_ward/f2p_ward_true_sight_ambient.vpcf", context )
        	PrecacheResource( "particle", "particles/econ/items/lone_druid/lone_druid_cauldron/lone_druid_bear_entangle_dust_cauldron.vpcf", context )
        	PrecacheResource( "particle", "particles/newplayer_fx/npx_landslide_debris.vpcf", context )
-       	
-	--Cache particles for traps
-		PrecacheResource( "particle_folder", "particles/units/heroes/hero_dragon_knight", context )
-		PrecacheResource( "particle_folder", "particles/units/heroes/hero_venomancer", context )
-		PrecacheResource( "particle_folder", "particles/units/heroes/hero_axe", context )
-		PrecacheResource( "particle_folder", "particles/units/heroes/hero_life_stealer", context )
-
-	--Cache sounds for traps
-		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts", context )
-		PrecacheResource( "soundfile", "soundevents/soundevents_conquest.vsndevts", context )
+    
+		PrecacheResource( "soundfile", "soundevents/game_sound_event.vsndevts", context )
 end
 
 function Activate()
-	-- Create our game mode and initialize it
 	COverthrowGameMode:InitGameMode()
-	-- Custom Spawn
 	COverthrowGameMode:CustomSpawnCamps()
 end
 
@@ -78,26 +51,20 @@ function COverthrowGameMode:CustomSpawnCamps()
 	end
 end
 
----------------------------------------------------------------------------
--- Initializer
----------------------------------------------------------------------------
 function COverthrowGameMode:InitGameMode()
 	print( "Overthrow is loaded." )
-	
---	CustomNetTables:SetTableValue( "test", "value 1", {} );
---	CustomNetTables:SetTableValue( "test", "value 2", { a = 1, b = 2 } );
 
 	self.m_TeamColors = {}
-	self.m_TeamColors[DOTA_TEAM_GOODGUYS] = { 61, 210, 150 }	--		Teal
-	self.m_TeamColors[DOTA_TEAM_BADGUYS]  = { 243, 201, 9 }		--		Yellow
-	self.m_TeamColors[DOTA_TEAM_CUSTOM_1] = { 197, 77, 168 }	--      Pink
-	self.m_TeamColors[DOTA_TEAM_CUSTOM_2] = { 255, 108, 0 }		--		Orange
-	self.m_TeamColors[DOTA_TEAM_CUSTOM_3] = { 52, 85, 255 }		--		Blue
-	self.m_TeamColors[DOTA_TEAM_CUSTOM_4] = { 101, 212, 19 }	--		Green
-	self.m_TeamColors[DOTA_TEAM_CUSTOM_5] = { 129, 83, 54 }		--		Brown
-	self.m_TeamColors[DOTA_TEAM_CUSTOM_6] = { 27, 192, 216 }	--		Cyan
-	self.m_TeamColors[DOTA_TEAM_CUSTOM_7] = { 199, 228, 13 }	--		Olive
-	self.m_TeamColors[DOTA_TEAM_CUSTOM_8] = { 140, 42, 244 }	--		Purple
+	self.m_TeamColors[DOTA_TEAM_GOODGUYS] = { 61, 210, 150 }
+	self.m_TeamColors[DOTA_TEAM_BADGUYS]  = { 243, 201, 9 }
+	self.m_TeamColors[DOTA_TEAM_CUSTOM_1] = { 197, 77, 168 }
+	self.m_TeamColors[DOTA_TEAM_CUSTOM_2] = { 255, 108, 0 }
+	self.m_TeamColors[DOTA_TEAM_CUSTOM_3] = { 52, 85, 255 }
+	self.m_TeamColors[DOTA_TEAM_CUSTOM_4] = { 101, 212, 19 }
+	self.m_TeamColors[DOTA_TEAM_CUSTOM_5] = { 129, 83, 54 }
+	self.m_TeamColors[DOTA_TEAM_CUSTOM_6] = { 27, 192, 216 }
+	self.m_TeamColors[DOTA_TEAM_CUSTOM_7] = { 199, 228, 13 }
+	self.m_TeamColors[DOTA_TEAM_CUSTOM_8] = { 140, 42, 244 }
 
 	for team = 0, (DOTA_TEAM_COUNT-1) do
 		color = self.m_TeamColors[ team ]
@@ -133,6 +100,7 @@ function COverthrowGameMode:InitGameMode()
 	self.countdownEnabled = false
 	self.itemSpawnIndex = 1
 	self.itemSpawnLocation = Entities:FindByName( nil, "greevil" )
+
 	self.tier1ItemBucket = {}
 	self.tier2ItemBucket = {}
 	self.tier3ItemBucket = {}
@@ -141,13 +109,10 @@ function COverthrowGameMode:InitGameMode()
 	self.TEAM_KILLS_TO_WIN = 25
 	self.CLOSE_TO_VICTORY_THRESHOLD = 5
 
-	---------------------------------------------------------------------------
-
 	self:GatherAndRegisterValidTeams()
 
 	GameRules:GetGameModeEntity().COverthrowGameMode = self
 
-	-- Adding Many Players
 	if GetMapName() == "desert_quintet" then
 		GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 5 )
 		GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 5 )
@@ -155,45 +120,40 @@ function COverthrowGameMode:InitGameMode()
 		self.m_GoldRadiusMin = 300
 		self.m_GoldRadiusMax = 1400
 		self.m_GoldDropPercent = 8
-	elseif GetMapName() == "temple_quartet" then
-		GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 4 )
-		GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 4 )
-		GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_CUSTOM_1, 4 )
-		GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_CUSTOM_2, 4 )
-		self.m_GoldRadiusMin = 300
-		self.m_GoldRadiusMax = 1400
-		self.m_GoldDropPercent = 10
+
 	else
 		self.m_GoldRadiusMin = 250
 		self.m_GoldRadiusMax = 550
 		self.m_GoldDropPercent = 4
 	end
 
-	-- Show the ending scoreboard immediately
 	GameRules:SetCustomGameEndDelay( 0 )
 	GameRules:SetCustomVictoryMessageDuration( 10 )
 	GameRules:SetPreGameTime( 10 )
 	GameRules:SetStrategyTime( 0.0 )
 	GameRules:SetShowcaseTime( 0.0 )
-	--GameRules:SetHideKillMessageHeaders( true )
+
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesOverride( true )
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesVisible( false )
+
 	GameRules:SetHideKillMessageHeaders( true )
 	GameRules:SetUseUniversalShopMode( true )
-	GameRules:GetGameModeEntity():SetRuneEnabled( DOTA_RUNE_DOUBLEDAMAGE , true ) --Double Damage
-	GameRules:GetGameModeEntity():SetRuneEnabled( DOTA_RUNE_HASTE, true ) --Haste
-	GameRules:GetGameModeEntity():SetRuneEnabled( DOTA_RUNE_ILLUSION, true ) --Illusion
-	GameRules:GetGameModeEntity():SetRuneEnabled( DOTA_RUNE_INVISIBILITY, true ) --Invis
-	GameRules:GetGameModeEntity():SetRuneEnabled( DOTA_RUNE_REGENERATION, false ) --Regen
-	GameRules:GetGameModeEntity():SetRuneEnabled( DOTA_RUNE_ARCANE, true ) --Arcane
-	GameRules:GetGameModeEntity():SetRuneEnabled( DOTA_RUNE_BOUNTY, false ) --Bounty
+
+	GameRules:GetGameModeEntity():SetRuneEnabled( DOTA_RUNE_DOUBLEDAMAGE , true )
+	GameRules:GetGameModeEntity():SetRuneEnabled( DOTA_RUNE_HASTE, true )
+	GameRules:GetGameModeEntity():SetRuneEnabled( DOTA_RUNE_ILLUSION, true )
+	GameRules:GetGameModeEntity():SetRuneEnabled( DOTA_RUNE_INVISIBILITY, true )
+	GameRules:GetGameModeEntity():SetRuneEnabled( DOTA_RUNE_REGENERATION, false )
+	GameRules:GetGameModeEntity():SetRuneEnabled( DOTA_RUNE_ARCANE, true )
+	GameRules:GetGameModeEntity():SetRuneEnabled( DOTA_RUNE_BOUNTY, false )
+
 	GameRules:GetGameModeEntity():SetLoseGoldOnDeath( false )
 	GameRules:GetGameModeEntity():SetFountainPercentageHealthRegen( 0 )
 	GameRules:GetGameModeEntity():SetFountainPercentageManaRegen( 0 )
 	GameRules:GetGameModeEntity():SetFountainConstantManaRegen( 0 )
+
 	GameRules:GetGameModeEntity():SetBountyRunePickupFilter( Dynamic_Wrap( COverthrowGameMode, "BountyRunePickupFilter" ), self )
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( COverthrowGameMode, "ExecuteOrderFilter" ), self )
-
 
 	ListenToGameEvent( "game_rules_state_change", Dynamic_Wrap( COverthrowGameMode, 'OnGameRulesStateChange' ), self )
 	ListenToGameEvent( "npc_spawned", Dynamic_Wrap( COverthrowGameMode, "OnNPCSpawned" ), self )
@@ -211,7 +171,6 @@ function COverthrowGameMode:InitGameMode()
 	COverthrowGameMode:SetUpFountains()
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, 1 ) 
 
-	-- Spawning monsters
 	spawncamps = {}
 	for i = 1, self.numSpawnCamps do
 		local campname = "camp"..i.."_path_customspawn"
@@ -223,9 +182,6 @@ function COverthrowGameMode:InitGameMode()
 	end
 end
 
----------------------------------------------------------------------------
--- Set up fountain regen
----------------------------------------------------------------------------
 function COverthrowGameMode:SetUpFountains()
 
 	LinkLuaModifier( "modifier_fountain_aura_lua", LUA_MODIFIER_MOTION_NONE )
@@ -233,24 +189,18 @@ function COverthrowGameMode:SetUpFountains()
 
 	local fountainEntities = Entities:FindAllByClassname( "ent_dota_fountain")
 	for _,fountainEnt in pairs( fountainEntities ) do
-		--print("fountain unit " .. tostring( fountainEnt ) )
 		fountainEnt:AddNewModifier( fountainEnt, fountainEnt, "modifier_fountain_aura_lua", {} )
 	end
 end
 
----------------------------------------------------------------------------
--- Get the color associated with a given teamID
----------------------------------------------------------------------------
 function COverthrowGameMode:ColorForTeam( teamID )
 	local color = self.m_TeamColors[ teamID ]
 	if color == nil then
-		color = { 255, 255, 255 } -- default to white
+		color = { 255, 255, 255 }
 	end
 	return color
 end
 
----------------------------------------------------------------------------
----------------------------------------------------------------------------
 function COverthrowGameMode:EndGame( victoryTeam )
 	local overBoss = Entities:FindByName( nil, "@overboss" )
 	if overBoss then
@@ -263,10 +213,6 @@ function COverthrowGameMode:EndGame( victoryTeam )
 	GameRules:SetGameWinner( victoryTeam )
 end
 
-
----------------------------------------------------------------------------
--- Put a label over a player's hero so people know who is on what team
----------------------------------------------------------------------------
 function COverthrowGameMode:UpdatePlayerColor( nPlayerID )
 	if not PlayerResource:HasSelectedHero( nPlayerID ) then
 		return
@@ -282,23 +228,17 @@ function COverthrowGameMode:UpdatePlayerColor( nPlayerID )
 	PlayerResource:SetCustomPlayerColor( nPlayerID, color[1], color[2], color[3] )
 end
 
-
----------------------------------------------------------------------------
--- Simple scoreboard using debug text
----------------------------------------------------------------------------
 function COverthrowGameMode:UpdateScoreboard()
 	local sortedTeams = {}
 	for _, team in pairs( self.m_GatheredShuffledTeams ) do
 		table.insert( sortedTeams, { teamID = team, teamScore = GetTeamHeroKills( team ) } )
 	end
 
-	-- reverse-sort by score
 	table.sort( sortedTeams, function(a,b) return ( a.teamScore > b.teamScore ) end )
 
 	for _, t in pairs( sortedTeams ) do
 		local clr = self:ColorForTeam( t.teamID )
 
-		-- Scaleform UI Scoreboard
 		local score = 
 		{
 			team_id = t.teamID,
@@ -306,9 +246,9 @@ function COverthrowGameMode:UpdateScoreboard()
 		}
 		FireGameEvent( "score_board", score )
 	end
-	-- Leader effects (moved from OnTeamKillCredit)
+
 	local leader = sortedTeams[1].teamID
-	--print("Leader = " .. leader)
+
 	self.leadingTeam = leader
 	self.runnerupTeam = sortedTeams[2].teamID
 	self.leadingTeamScore = sortedTeams[1].teamScore
@@ -322,7 +262,6 @@ function COverthrowGameMode:UpdateScoreboard()
 	for _,entity in pairs( allHeroes) do
 		if entity:GetTeamNumber() == leader and sortedTeams[1].teamScore ~= sortedTeams[2].teamScore then
 			if entity:IsAlive() == true then
-				-- Attaching a particle to the leading team heroes
 				local existingParticle = entity:Attribute_GetIntValue( "particleID", -1 )
        			if existingParticle == -1 then
        				local particleLeader = ParticleManager:CreateParticle( "particles/leader/leader_overhead.vpcf", PATTACH_OVERHEAD_FOLLOW, entity )
@@ -346,16 +285,13 @@ function COverthrowGameMode:UpdateScoreboard()
 	end
 end
 
----------------------------------------------------------------------------
--- Update player labels and the scoreboard
----------------------------------------------------------------------------
 function COverthrowGameMode:OnThink()
 	for nPlayerID = 0, (DOTA_MAX_TEAM_PLAYERS-1) do
 		self:UpdatePlayerColor( nPlayerID )
 	end
 	
 	self:UpdateScoreboard()
-	-- Stop thinking if game is paused
+
 	if GameRules:IsGamePaused() == true then
         return 1
     end
@@ -366,24 +302,21 @@ function COverthrowGameMode:OnThink()
 			CustomGameEventManager:Send_ServerToAllClients( "timer_alert", {} )
 		end
 		if nCOUNTDOWNTIMER <= 0 then
-			--Check to see if there's a tie
 			if self.isGameTied == false then
+
 				GameRules:SetCustomVictoryMessage( self.m_VictoryMessages[self.leadingTeam] )
 				COverthrowGameMode:EndGame( self.leadingTeam )
 				self.countdownEnabled = false
+
 			else
 				self.TEAM_KILLS_TO_WIN = self.leadingTeamScore + 1
-				local broadcast_killcount = 
-				{
-					killcount = self.TEAM_KILLS_TO_WIN
-				}
+				local broadcast_killcount = { killcount = self.TEAM_KILLS_TO_WIN }
 				CustomGameEventManager:Send_ServerToAllClients( "overtime_alert", broadcast_killcount )
 			end
        	end
 	end
 	
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-		--Spawn Gold Bags
 		COverthrowGameMode:ThinkGoldDrop()
 		COverthrowGameMode:ThinkSpecialItemDrop()
 	end
@@ -391,11 +324,7 @@ function COverthrowGameMode:OnThink()
 	return 1
 end
 
----------------------------------------------------------------------------
--- Scan the map to see which teams have spawn points
----------------------------------------------------------------------------
 function COverthrowGameMode:GatherAndRegisterValidTeams()
---	print( "GatherValidTeams:" )
 
 	local foundTeams = {}
 	for _, playerStart in pairs( Entities:FindAllByClassname( "info_player_start_dota" ) ) do
@@ -437,15 +366,13 @@ function COverthrowGameMode:GatherAndRegisterValidTeams()
 	end
 end
 
--- Spawning individual camps
 function COverthrowGameMode:spawncamp(campname)
 	spawnunits(campname)
 end
 
--- Simple Custom Spawn
 function spawnunits(campname)
 	local spawndata = spawncamps[campname]
-	local NumberToSpawn = spawndata.NumberToSpawn --How many to spawn
+	local NumberToSpawn = spawndata.NumberToSpawn
     local SpawnLocation = Entities:FindByName( nil, campname )
     local waypointlocation = Entities:FindByName ( nil, spawndata.WaypointName )
 	if SpawnLocation == nil then
@@ -458,23 +385,15 @@ function spawnunits(campname)
 			"berserk_zombie"
 	    }
 	local r = randomCreature[RandomInt(1,#randomCreature)]
-	--print(r)
+
     for i = 1, NumberToSpawn do
         local creature = CreateUnitByName( "npc_dota_creature_" ..r , SpawnLocation:GetAbsOrigin() + RandomVector( RandomFloat( 0, 200 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
-        --print ("Spawning Camps")
+
         creature:SetInitialGoalEntity( waypointlocation )
     end
 end
 
---------------------------------------------------------------------------------
--- Event: Filter for inventory full
---------------------------------------------------------------------------------
 function COverthrowGameMode:ExecuteOrderFilter( filterTable )
-	--[[
-	for k, v in pairs( filterTable ) do
-		print("EO: " .. k .. " " .. tostring(v) )
-	end
-	]]
 
 	local orderType = filterTable["order_type"]
 	if ( orderType ~= DOTA_UNIT_ORDER_PICKUP_ITEM or filterTable["issuer_player_id_const"] == -1 ) then
@@ -485,7 +404,6 @@ function COverthrowGameMode:ExecuteOrderFilter( filterTable )
 			return true
 		end
 		local pickedItem = item:GetContainedItem()
-		--print(pickedItem:GetAbilityName())
 		if pickedItem == nil then
 			return true
 		end
@@ -493,10 +411,9 @@ function COverthrowGameMode:ExecuteOrderFilter( filterTable )
 			local player = PlayerResource:GetPlayer(filterTable["issuer_player_id_const"])
 			local hero = player:GetAssignedHero()
 			if hero:GetNumItemsInInventory() < 6 then
-				--print("inventory has space")
 				return true
 			else
-				--print("Moving to target instead")
+
 				local position = item:GetAbsOrigin()
 				filterTable["position_x"] = position.x
 				filterTable["position_y"] = position.y

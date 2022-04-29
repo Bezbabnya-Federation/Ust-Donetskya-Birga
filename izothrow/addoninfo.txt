@@ -1,7 +1,35 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
 	HeroGuidesSupported = 1
-	PenaltiesEnabled = 1
+
+	IsPlayable = 1
+	PenaltiesEnabled = 0
+	Default_Keys = 
+	[
+		{
+			Key = "Y"
+			Command = "+WheelButton"
+			Name = "CustomCommand"
+		},
+	]
+
+	IsTemplate = false
+	CheckAFKPlayers = true
+	DefaultMap = ""
+	DisableIK = false
+	EnablePickRules = false
+	EventGame = false
+
+	hero_picker = 
+	{
+	}
+
+	ForceDefaultGuide = true
+	MinimalPrecache = true
+	MinPlayers = 1
+	MaxPlayers = 10
+	TeamCount = -1
+
 	map_options = 
 	[
 		{

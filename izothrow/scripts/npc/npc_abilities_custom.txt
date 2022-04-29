@@ -699,7 +699,7 @@
         }
     }
 
-	// ИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУ
+// ИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУ
 // ИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУ
 // ИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУ
 // ИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУ
@@ -710,96 +710,107 @@
     {
         "BaseClass"                     "ability_datadriven"
 
-        "AbilityTextureName"            "vine_creator"
+        "AbilityTextureName"            "Sirotkin/vine_creator"
         "MaxLevel"                      "4"
 
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilitySound"					"Hero_OgreMagi.Bloodlust.Target"
 
-        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 
-        "AbilityCastRange"              "400"
-		"AbilityCastPoint"      		"0.0"
-		"AbilityCastAnimation"  		"ACT_DOTA_ATTACK"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 
-        "AbilityDamage"                 "100 150 200 250"
+        "AbilityCooldown"				"30.0 29.0 28.0 25.0"
+        "AbilityManaCost"				"100 120 130 140"
 
-        "AbilityCooldown"				"8.0"
-        "AbilityManaCost"				"100"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.45"
 
 		"AnimationPlaybackRate"  		"1"
 		"AnimationIgnoresModelScale" 	"1"
 
-        "OnSpellStart" 
-        {
-            "Damage"
-            {
-                "Target"        "TARGET"
-                "Type"            "DAMAGE_TYPE_MAGICAL"
-                "Damage"        "%AbilityDamage"
-            }
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"modelscale"			"25"
+			}	
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movement_speed"	"7 9 11 13"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"30 40 50 60"
+				"LinkedSpecialBonus"	"special_bonus_unique_ogre_magi"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"self_bonus"			"30 50 70 90"
+				"LinkedSpecialBonus"	"special_bonus_unique_ogre_magi"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"30"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"multicast_bloodlust_aoe"	"700"
+			}
+
+
         }
     }
 
 "vine_drinker"
 	{
 		"BaseClass"                     "ability_datadriven"
-        "AbilityTextureName"            "vine_drinker"
+        "AbilityTextureName"            "Sirotkin/vine_drinker"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"dodge_chance"				"10 15 20 25"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"crit_chance"				"10 15 20 25"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"crit_multiplier"			"200"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"last_proc"			"16 14 12 10"
-			}
-		}
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 
-        "MaxLevel"                      "4"
-
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-
-        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+
+		"AbilityCastAnimation"  		"ACT_DOTA_ATTACK"
+
+		"AnimationPlaybackRate"  		"1"
+		"AnimationIgnoresModelScale" 	"1"
+
+        "MaxLevel"                      "4"
 
         "AbilityCastRange"              "400"
         "AbilityDamage"                 "100 150 200 250"
         "AbilityCooldown"				"8.0"
         "AbilityManaCost"				"100"
 
-		"AnimationPlaybackRate"  		"1"
-		"AnimationIgnoresModelScale" 	"1"
 	}
 
-	"goodbye"
+	"feminism"
     {
         "BaseClass"                     "ability_datadriven"
 
-        "AbilityTextureName"            "goodbye"
+        "AbilityTextureName"            "Sirotkin/feminism"
         "MaxLevel"                      "4"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 
-        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+
+		"AbilityType"					"DOTA_UNIT_TARGET_ULTIMATE"
 
         "AbilityCastRange"              "400"
 		"AbilityCastPoint"      		"0.0"
@@ -826,63 +837,84 @@
 
 	"teachers_life"
 	{
-        "BaseClass"                     "ability_datadriven"
-		"AbilityTextureName"            "teachers_life"									
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"ability_lua"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"cast_range"				"100 150 200 250"
-			}
+		"AbilityTextureName"            "Sirotkin/teachers_life"		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"	
+		"AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"spell_amp"			"14 18 22 26"
-			}
-		}
-	}
-
-	"feminism"
-	{
-		"BaseClass"                     "ability_datadriven"
-        "AbilityTextureName"            "feminism"
-
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"ScriptFile"					"abilities/heroes/sirotkin.lua"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_Tusk.WalrusPunch.Target"
-
-		"HasScepterUpgrade"			"1"
-		"AbilityDraftUltScepterAbility"		"tusk_walrus_kick"
-
-		"AbilityCastPoint"				"0"
-		"AbilityCastRange"				"150"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-
-		"AbilityCooldown"				"20 15 10"
-		"AbilityManaCost"				"75"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_multiplier"			"300 350 400"
+				"damage"					"10 12 14 16"
+				"LinkedSpecialBonus"		"sirotkin_bonus"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"450"
+			}			
+		}
+	}
+
+	"sirotkin_bonus"
+	{
+		"BaseClass"							"special_bonus_undefined"														
+		"AbilityType"						"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"						"5"
+			}			
+		}
+	}
+
+	"goodbye"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"					"abilities/heroes/sirotkin.lua"
+        "AbilityTextureName"            "Sirotkin/goodbye"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_IL"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilityType"					"DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		
+		"AbilitySound"					"Hero_Tusk.WalrusPunch.Target"
+
+		"AbilityCastPoint"				"0"
+		"AbilityCastRange"				"150"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+		"AbilityCooldown"				"20 15 10"
+		"AbilityManaCost"				"80"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_multiplier"			"375 425 450"
 				"LinkedSpecialBonus"		"special_bonus_unique_tusk"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"air_time"					"1.0"
+				"air_time"					"1.5"
 				"LinkedSpecialBonus"		"special_bonus_unique_tusk_7"
 			}
 			"03"
@@ -904,4 +936,292 @@
 	}
 	//Sirotkin's Ability End
 
+	//ZOLDATEN ABILITY START
+	"zoldaten_spawn"
+	{
+		"BaseClass"                     	"ability_lua"
+		"ScriptFile"						"abilities/heroes/zoldaten.lua"
+        "AbilityTextureName"            	"Zoldaten/zoldatenspawn"
+
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCastAnimation"				"ACT_DOTA_CAST_ABILITY_1"
+
+		"AbilityCastPoint"					"0.65"
+		"AbilityManaCost"					"70"
+		"AbilityCooldown"					"24"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"illusion_duration"			"14"
+			}
+
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"outgoing_damage"			"-35 -30 -25 0"
+			}
+
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"outgoing_damage_tooltip"	"75 80 85 100"
+			}
+
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"incoming_damage"			"120"
+			}
+
+			"05"
+			{
+				"var_type"								"FIELD_INTEGER"
+				"tooltip_incoming_damage_total_pct"		"270"
+			}
+
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"illusion_count"			"2 3 4 5"
+			}			
+		}
+	}
+	//ZOLDATEN ABILITY END
+
+	//IZOTOV ABILITY START
+	"zombie_spawn"
+	{
+		"BaseClass"							"ability_lua"
+		"ScriptFile"						"abilities/heroes/izotov.lua"
+
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"				"izotov/zombiespawn"
+
+		"AbilityCooldown"					"25"
+		"AbilityManaCost"					"80 90 100 110"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"zombies_count"				"3 4 5 6"
+			}
+
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"zombie_health"				"250 450 600 700"
+			}
+
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"zombie_damage"				"45 65 85 120"
+			}
+
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"zombie_multiplier"			"2"
+			}
+
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"duration"					"35"
+			}
+
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"anarh_count"				"1 2 3 4"
+			}
+		}
+	}
+
+	"izotov_bonus_1"
+	{
+		"BaseClass"						"special_bonus_undefined"														
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"						"0"
+			}
+		}
+	}
+	"izotov_bonus_2"
+	{
+		"BaseClass"						"special_bonus_undefined"														
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"						"0"
+			}
+		}
+	}
+
+	"urod_ability"
+	{
+		"BaseClass"           			"ability_lua"
+		"ScriptFile"					"abilities/heroes/izotov.lua"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		"AbilityTextureName"			"gorshok/soul_rip"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage"				"10 15 20 25"
+			}
+
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_attackspeed"			"10 20 30 40"
+			}
+
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_hp_regen"			"4 8 12 16"
+			}
+
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"1200"
+			}
+		}
+	}
+
+	"submarine"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/heroes/izotov.lua"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		"AbilityTextureName"			"Izotov/kursk"
+
+		"AbilityCastRange"				"350"
+		"AbilityCastPoint"				"0.35"
+		"AbilityCooldown"				"70"
+		"AbilityManaCost"				"150"
+
+		"AOERadius"						"600"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"75 150 225"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"pct_damage"			"25"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"15"
+			}
+		}
+	}
+	//IZOTOV ABILITY END
+
+	//NEKIT ABILITY START
+
+	"nekit_suicide"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/heroes/nekit.lua"
+
+		"AbilityTextureName"        "Nekit/Suicide"
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+
+		"AbilityCooldown"           "110"
+		"AbilityManaCost"			"200 300 400"
+
+		"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"		"SPELL_DISPELLABLE_NO"
+
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+
+		"AbilitySpecial"
+		{
+		    "01"
+		    {
+		        "var_type"          "FIELD_INTEGER"
+		        "damage"            "1000 1500 2500"
+				"LinkedSpecialBonus"	"special_bonus_birzha_homunculus_3"
+		    }
+		    "02"
+		    {
+		        "var_type"          "FIELD_FLOAT"
+		        "duration"          "5"
+		    }
+		    "03"
+		    {
+		        "var_type"          "FIELD_INTEGER"
+		        "per_damage"        "10 30 50"
+		    }
+		    "04"
+		    {
+		        "var_type"          "FIELD_INTEGER"
+		        "magical_resistance" "-50 -75 -100"
+		    }
+		    "05"
+		    {
+		        "var_type"          "FIELD_INTEGER"
+		        "movement_speed"    "-10 -20 -30"
+		    }
+		    "06"
+		    {
+		        "var_type"          "FIELD_INTEGER"
+		        "radius"            "1200"
+		    }
+		}
+	}
+
+	"nekit_bonus"
+	{
+		"BaseClass"						"special_bonus_undefined"														
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"						"90"
+			}
+		}
+	}
+	//NEKIT ABILITY END
 }
