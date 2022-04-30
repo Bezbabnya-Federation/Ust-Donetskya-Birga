@@ -1083,7 +1083,7 @@
 
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
-		"AbilityTextureName"			"gorshok/soul_rip"
+		"AbilityTextureName"			"Izotov/urod_ability"
 		"AbilitySpecial"
 		{
 			"01"
@@ -1112,45 +1112,101 @@
 		}
 	}
 
-	"submarine"
+	"kunkka_ghostship"
 	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/heroes/izotov.lua"
+		"ID"							"5035"	
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 
-		"AbilityTextureName"			"Izotov/kursk"
+		"FightRecapLevel"				"2"
 
-		"AbilityCastRange"				"350"
-		"AbilityCastPoint"				"0.35"
-		"AbilityCooldown"				"70"
-		"AbilityManaCost"				"150"
+		"AbilitySound"					"Ability.Ghostship"
+	    "AbilityTextureName"			"Izotov/Kursk"
 
-		"AOERadius"						"600"
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"40"
+		"AbilityDamage"					"600 1400 2200"
+		"AbilityManaCost"				"150 225 300"
+
+		// "AbilityDraftUltShardAbility"	"kunkka_tidal_wave"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_GHOST_SHIP"
+		"AbilityCastGestureSlot"		"DEFAULT"
 		
+
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"75 150 225"
+				"var_type"					"FIELD_FLOAT"
+				"tooltip_delay"				"2.7 2.2 1.7"
 			}
+
 			"02"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"pct_damage"			"25"
+				"var_type"					"FIELD_INTEGER"
+				"ghostship_distance"		"2000"
 			}
+
 			"03"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"15"
+				"var_type"					"FIELD_INTEGER"
+				"ghostship_width"			"425 425 425"
+			}	
+
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movespeed_bonus"			"0"
+			}
+
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"buff_duration"				"0"
+			}
+
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stun_duration"				"3"
+			}
+
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"ghostship_speed"			"650"
+			}
+
+			"08"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"ghostship_absorb"			"0"
 			}
 		}
 	}
+	
+	"special_bonus_unique_kunkka_3"
+	{
+		"ID"								"6666"							
+		"AbilityType"						"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"						"3.5"
+				"ad_linked_abilities"		"kunkka_ghostship"
+			}
+		}
+	}
+
 	//IZOTOV ABILITY END
 
 	//NEKIT ABILITY START
@@ -1224,4 +1280,46 @@
 		}
 	}
 	//NEKIT ABILITY END
+
+	//MIXA ABILITY START
+	"tank"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/heroes/mixalich.lua"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		"AbilityTextureName"			"Mixalich/Tank"
+
+		"AbilityCastRange"				"350"
+		"AbilityCastPoint"				"0.35"
+		"AbilityCooldown"				"70"
+		"AbilityManaCost"				"150"
+
+		"AOERadius"						"600"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"65 120 220"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"pct_damage"			"5 10 20"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"5 10 15"
+			}
+		}
+	}
+	//MIXA ABILITY END
 }

@@ -591,10 +591,13 @@
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 	}
 
-	//
-	//
-	//
+	// ИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУ
+	// ИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУ
+	// ИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУ
+	// ИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУ
+	// ИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУ	
 
+	// IZOTOV START
 	"npc_izotov_urod"
 	{
         "BaseClass"             	"npc_dota_creature"
@@ -701,4 +704,125 @@
         "AutoAttacksByDefault"  	"1"
         "IsSummoned"            	"1"
 	}
+	// IZOTOV END
+	
+	// MIXA START
+	"npc_tank_1"
+	{
+        "BaseClass"             "npc_dota_creature"
+        "Model"                 "models/items/courier/corsair_ship/corsair_ship.vmdl"
+        "ModelScale"            "1.5"
+        "Level"                 "50"
+        "HasInventory"          "0"
+       	"vscripts"              "abilities/heroes/mixalich.lua"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+		"ProjectileModel"		"particles/units/heroes/hero_morphling/morphling_base_attack.vpcf"
+		"ProjectileSpeed"		"1300"	
+        "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"       "75"
+        "AttackDamageMax"       "75"
+        "AttackRate"            "1"
+        "AttackAnimationPoint"  "0.3"
+        "AttackAcquisitionRange" "600"
+        "AttackRange"           "600"
+        "BountyGoldMin"         "25"
+        "BountyGoldMax"         "25"
+		"RingRadius"				"70"
+		"HealthBarOffset"			"160"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"	
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"         "450"
+        "MovementTurnRate"      "0.4"
+        "StatusHealth"          "99999999"
+        "StatusHealthRegen"     "0"
+        "StatusMana"            "0"
+        "StatusManaRegen"       "0"
+        "VisionDaytimeRange"    "600"
+        "VisionNighttimeRange"  "300"
+        "TeamName"              "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "AutoAttacksByDefault"  "1"
+        "IsSummoned"            "1"
+	}
+
+	"npc_tank_2"
+	{
+        "BaseClass"             "npc_dota_creature"
+        "Model"                 "models/props_structures/boat_dragonknight.vmdl"
+        "ModelScale"            "0.5"
+        "Level"                 "50"
+        "HasInventory"          "0"
+       	"vscripts"              "abilities/heroes/mixalich.lua"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+		"ProjectileModel"		"particles/units/heroes/hero_morphling/morphling_base_attack.vpcf"
+        "AttackDamageMin"       "150"
+        "AttackDamageMax"       "150"
+        "AttackRate"            "1"
+        "AttackAnimationPoint"  "0.3"
+        "AttackAcquisitionRange" "600"
+        "AttackRange"           "600"
+        "BountyGoldMin"         "25"
+        "BountyGoldMax"         "25"
+		"RingRadius"				"70"
+		"HealthBarOffset"			"160"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"	
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"         "450"
+        "MovementTurnRate"      "0.4"
+        "StatusHealth"          "99999999"
+        "StatusHealthRegen"     "0"
+        "StatusMana"            "0"
+        "StatusManaRegen"       "0"
+        "VisionDaytimeRange"    "600"
+        "VisionNighttimeRange"  "300"
+        "TeamName"              "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "AutoAttacksByDefault"  "1"
+        "IsSummoned"            "1"
+	}
+	
+	"npc_tank_3"
+	{
+        "BaseClass"             "npc_dota_creature"
+        "Model"                 "models/props_structures/ship_broken001.vmdl"
+		"ProjectileModel"		"particles/units/heroes/hero_morphling/morphling_base_attack.vpcf"
+        "ModelScale"            "0.3"
+        "Level"                 "50"
+        "HasInventory"          "0"
+        "vscripts"              "abilities/heroes/mixalich.lua"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"       "225"
+        "AttackDamageMax"       "225"
+        "AttackRate"            "0.5"
+        "AttackAnimationPoint"  "0.3"
+        "AttackAcquisitionRange" "600"
+        "AttackRange"           "600"
+        "BountyGoldMin"         "25"
+        "BountyGoldMax"         "25"
+		"RingRadius"				"70"
+		"HealthBarOffset"			"160"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"	
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"         "450"
+        "MovementTurnRate"      "0.4"
+        "StatusHealth"          "99999999"
+        "StatusHealthRegen"     "0"
+        "StatusMana"            "0"
+        "StatusManaRegen"       "0"
+        "VisionDaytimeRange"    "600"
+        "VisionNighttimeRange"  "300"
+        "TeamName"              "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "AutoAttacksByDefault"  	"1"
+        "IsSummoned"           	 	"1"
+	}
+	// MIXA END
 }	

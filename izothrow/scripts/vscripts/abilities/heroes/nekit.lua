@@ -49,13 +49,13 @@ function nekit_suicide:OnSpellStart()
         damage_flags = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS,
     }
 
-    local talent_damage = self:GetCaster():GetHealth() / 100 * self:GetCaster():FindTalentValue("nekit_bonus")
+    local talent_damage = self:GetCaster():GetHealth() / 1 -- 100 * self:GetCaster():FindTalentValue("nekit_bonus")
     local new_health = self:GetCaster():GetHealth() - talent_damage
-    if self:GetCaster():HasTalent("nekit_bonus") then
-        self:GetCaster():ModifyHealth(new_health, self, false, 0)
-    else
+    -- if self:GetCaster():HasTalent("nekit_bonus") then
+        -- self:GetCaster():ModifyHealth(new_health, self, false, 0)
+    -- else
         ApplyDamage(damageTable)
-    end
+    -- end
 end
 
 modifier_nekit_suicide_debuff = class({})

@@ -81,6 +81,8 @@
 		// Прочее
 		"DOTA_Tooltip_modifier_zombie_spawn"							"Хиросимский концерт"
 		"DOTA_Tooltip_modifier_zombie_spawn_Description"				"Тот самый хиросимский концерт Изотова, где он танцевал уродам."
+		"DOTA_Tooltip_Ability_izotov_bonus_1"							""
+		"DOTA_Tooltip_Ability_izotov_bonus_2"							""
 
 		// ПРЕДМЕТЫ (ПОДЫ)
 		"DOTA_Tooltip_Ability_item_brusco_minican"						"Brusco Minican"
@@ -102,10 +104,14 @@
 		"npc_dota_hero_sniper"											"Эсэсовец"
 		"npc_dota_hero_undying" 										"Хиросимский урод"
 		"npc_dota_hero_techies"											"Мина Изотова"
+		"npc_dota_hero_shredder"										"Михалыч"
 
 		// Юниты
 		"npc_izotov_mega_urod"											"Хиросимский урод уродливый"
 		"npc_izotov_urod"												"Хиросимский урод"
+		"npc_boat_1"													"Подлодка на бензине"
+		"npc_boat_2"													"Подлодка на дизеле"
+		"npc_boat_3"													"Подлодка на азоте"
 
 		// Скиллы Азотова
 		"DOTA_Tooltip_ability_axe_berserkers_call" 						"Провокация уродов"
@@ -119,9 +125,21 @@
 		"DOTA_Tooltip_ability_kunkka_ghostship" 						"Потопить подлодку"
 		"DOTA_Tooltip_ability_kunkka_ghostship_Description" 			"Старый моряк Изотов призывает свою верную подлодку и безжалостно топит ее вместе с врагами."
 
+		"DOTA_Tooltip_ability_kunkka_ghostship_lore"					"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
+		"DOTA_Tooltip_ability_zombie_spawn_lore"						"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
+		
 		"DOTA_Tooltip_Ability_zombie_spawn_zombies_count" 				"КОЛ-ВО ЗОМБИ:"
 		"DOTA_Tooltip_Ability_zombie_spawn_zombie_health" 				"ЗДОРОВЬЕ ЗОМБИ:"
 		"DOTA_Tooltip_Ability_zombie_spawn_zombie_damage" 				"УРОН ЗОМБИ:"
+
+		// Скиллы Михалыча
+		"DOTA_Tooltip_ability_tank" 									"Вундервафля Михалыча"
+		"DOTA_Tooltip_ability_tank_Description" 						"Михалыч, используя свои знания мирового вселеннского миростроения, производит из говна и палок вундерваффе, чтобы бомбить НАТОвцев."
+
+		"DOTA_Tooltip_ability_tank_lore"								"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
+
+		"DOTA_Tooltip_ability_tank_damage"								"УРОН КОРАБЛЯ:"
+		"DOTA_Tooltip_ability_tank_duration"							"ДЛИТЕЛЬНОСТЬ КОРАБЛЯ:"
 
 		// Скиллы Некита
 		"DOTA_Tooltip_ability_meepo_earthbind" 							"Рыболовная сеть"
@@ -132,16 +150,28 @@
 		"DOTA_Tooltip_ability_pudge_meat_hook_Description" 				"Используя свой рыболовный опыт, Никита быстро ловит на крючок противника"
 		"DOTA_Tooltip_ability_antimage_mana_void" 						"Доебать в усмерть"
 		"DOTA_Tooltip_ability_antimage_mana_void_Description" 			"Никита доебывается до врага, нанося урон в зависимости от недостающей маны"
+		"DOTA_Tooltip_ability_nekit_suicide"							"АННИГИЛЯТОР!"
+		"DOTA_Tooltip_ability_nekit_suicide_Description"				"Некит собирает в своей голове всю свою хуйню и она лопается, разнося в щепки всю карту и всех чепухов."
+
+		"DOTA_Tooltip_ability_nekit_suicide_lore"						"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
+
+		"DOTA_Tooltip_ability_nekit_suicide_damage"						"УРОН:"
+		"DOTA_Tooltip_ability_nekit_suicide_per_damage"					"ПЕРИОДИЧЕСКИЙ УРОН:"
+		"DOTA_Tooltip_ability_nekit_suicide_duration"					"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_nekit_suicide_magical_resistance"			"%СНИЖЕНИЕ МАГИЧЕСКОГО СОПРОТИВЛЕНИЯ:"
+		"DOTA_Tooltip_ability_nekit_suicide_movement_speed"				"%СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
 
 		// Скиллы ССовца
 		"DOTA_Tooltip_ability_bounty_hunter_wind_walk" 					"Подкрасться к песочнице"
 		"DOTA_Tooltip_ability_bounty_hunter_wind_walk_Description"		"Эсэсовец незаметно подкрадывается к песочнице с детьми."
 		"DOTA_Tooltip_ability_zoldaten_spawn"			 				"Призыв зольдатен"
-		"DOTA_Tooltip_ability_zoldaten_spaw_Description"				"Эсэсовец зовет своих сослуживцев на помощь."
+		"DOTA_Tooltip_ability_zoldaten_spawn_Description"				"Эсэсовец зовет своих сослуживцев на помощь."
 		"DOTA_Tooltip_ability_abaddon_frostmourne" 						"Немецкая пристрелка"
 		"DOTA_Tooltip_ability_abaddon_frostmourne_Description"			"Достигнув 4 выстрелов по цели, Эсэсовец увеличивает скорость стрельбы и не дает противнику колдовать"
 		"DOTA_Tooltip_ability_sniper_assassinate" 						"Убить друга детства"
 		"DOTA_Tooltip_ability_sniper_assassinate_Description" 			"Эсэсовец безжалостно убивает друга детства Изотова"
+
+		"DOTA_Tooltip_ability_zoldaten_spawn_lore"						"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
 
 		"DOTA_Tooltip_ability_zoldaten_spawn_illusion_duration"			"ДЛИТЕЛЬНОСТЬ ИЛЛЮЗИЙ:"
 		"DOTA_Tooltip_ability_zoldaten_spawn_outgoing_damage_tooltip"	"%УРОН ИЛЛЮЗИЙ:"
@@ -168,13 +198,18 @@
 		"DOTA_Tooltip_ability_feminism"									"Равноправие!"
 		"DOTA_Tooltip_ability_feminism_Description"						"Сироткин неистово считает, что женщины и люди равны."
 
+		"DOTA_Tooltip_ability_vine_creator_lore"						"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
+		"DOTA_Tooltip_ability_vine_drinker_lore"						"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
+		"DOTA_Tooltip_ability_goodbye_lore"								"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
+		"DOTA_Tooltip_ability_teachers_life_lore"						"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
+		"DOTA_Tooltip_ability_feminism_lore"							"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
+
 		"DOTA_Tooltip_ability_teachers_life_damage"						"%ОТРАЖАЕМЫЙ УРОН:"
 		"DOTA_Tooltip_ability_teachers_life_radius"						"РАДИУС:"
 		"DOTA_Tooltip_ability_goodbye_crit_multiplier"					"%КРИТИЧЕСКИЙ УРОН:"
 		"DOTA_Tooltip_ability_goodbye_slow_duration"					"ДЛИТЕЛЬНОСТЬ ЗАМЕДЛЕНИЯ:"
 		"DOTA_Tooltip_ability_goodbye_air_time"							"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
 		"DOTA_Tooltip_ability_goodbye_move_slow"						"%ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
-
 	}
 }
 

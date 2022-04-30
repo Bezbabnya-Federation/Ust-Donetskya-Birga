@@ -1,5 +1,5 @@
 _G.nNEUTRAL_TEAM = 4
-_G.nCOUNTDOWNTIMER = 901
+_G.nCOUNTDOWNTIMER = 1001
 
 if COverthrowGameMode == nil then
 	_G.COverthrowGameMode = class({})
@@ -23,19 +23,30 @@ function Precache( context )
         PrecacheUnitByNameSync( "npc_dota_creature_berserk_zombie", context )
         PrecacheModel( "npc_dota_creature_berserk_zombie", context )
 
+		PrecacheUnitByNameSync( "npc_boat_1", context)
+		PrecacheModel( "npc_boat_1", context )
+
+		PrecacheUnitByNameSync( "npc_boat_2", context)
+		PrecacheModel( "npc_boat_2", context )
+
+		PrecacheUnitByNameSync( "npc_boat_3", context)
+		PrecacheModel( "npc_boat_3", context )
+
         PrecacheUnitByNameSync( "npc_dota_treasure_courier", context )
         PrecacheModel( "npc_dota_treasure_courier", context )
 
        	PrecacheResource( "particle", "particles/econ/events/nexon_hero_compendium_2014/teleport_end_nexon_hero_cp_2014.vpcf", context )
        	PrecacheResource( "particle", "particles/leader/leader_overhead.vpcf", context )
        	PrecacheResource( "particle", "particles/last_hit/last_hit.vpcf", context )
-       	PrecacheResource( "particle", "particles/units/heroes/hero_zuus/zeus_taunt_coin.vpcf", context )
        	PrecacheResource( "particle", "particles/addons_gameplay/player_deferred_light.vpcf", context )
        	PrecacheResource( "particle", "particles/items_fx/black_king_bar_avatar.vpcf", context )
        	PrecacheResource( "particle", "particles/treasure_courier_death.vpcf", context )
        	PrecacheResource( "particle", "particles/econ/wards/f2p/f2p_ward/f2p_ward_true_sight_ambient.vpcf", context )
        	PrecacheResource( "particle", "particles/econ/items/lone_druid/lone_druid_cauldron/lone_druid_bear_entangle_dust_cauldron.vpcf", context )
        	PrecacheResource( "particle", "particles/newplayer_fx/npx_landslide_debris.vpcf", context )
+		PrecacheResource( "particle", "particles/units/heroes/hero_zuus/zeus_taunt_coin.vpcf", context )
+		PrecacheResource( "particle", "particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", context)
+		PrecacheResource( "particle", "particles/units/heroes/hero_undying/undying_tnt_wlk_golem.vpcf", context)
     
 		PrecacheResource( "soundfile", "soundevents/game_sound_event.vsndevts", context )
 end

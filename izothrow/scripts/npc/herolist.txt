@@ -7,4 +7,7 @@
 	"npc_dota_hero_undying"											"1"
 	"npc_dota_hero_antimage"										"1"
 	"npc_dota_hero_techies"											"1"
+	"npc_dota_hero_shredder"										"1"
 }
+
+
