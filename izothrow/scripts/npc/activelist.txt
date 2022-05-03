@@ -1,0 +1,13 @@
+"whitelist"
+{
+	"npc_dota_hero_brewmaster"										"1"
+	"npc_dota_hero_sniper"											"1"
+	"npc_dota_hero_kunkka"											"1"
+	"npc_dota_hero_rubick"											"1"
+	"npc_dota_hero_undying"											"1"
+	"npc_dota_hero_antimage"										"1"
+	"npc_dota_hero_techies"											"1"
+	"npc_dota_hero_shredder"										"1"
+}
+
+

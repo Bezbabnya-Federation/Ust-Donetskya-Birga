@@ -12,13 +12,12 @@ function PickRandomShuffle( reference_list, bucket )
     end
     
     if ( #bucket == 0 ) then
-        -- ran out of options, refill the bucket from the reference
+
         for k, v in pairs(reference_list) do
             bucket[k] = v
         end
     end
 
-    -- pick a value from the bucket and remove it
     local pick_index = RandomInt( 1, #bucket )
     local result = bucket[ pick_index ]
     table.remove( bucket, pick_index )
@@ -33,7 +32,7 @@ function shallowcopy(orig)
         for orig_key, orig_value in pairs(orig) do
             copy[orig_key] = orig_value
         end
-    else -- number, string, boolean, etc
+    else
         copy = orig
     end
     return copy
@@ -76,7 +75,6 @@ end
 function CountdownTimer()
     nCOUNTDOWNTIMER = nCOUNTDOWNTIMER - 1
     local t = nCOUNTDOWNTIMER
-    --print( t )
     local minutes = math.floor(t / 60)
     local seconds = t - (minutes * 60)
     local m10 = math.floor(minutes / 10)

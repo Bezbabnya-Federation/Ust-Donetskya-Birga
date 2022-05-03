@@ -1,11 +1,5 @@
---[[ events.lua ]]
-
----------------------------------------------------------------------------
--- Event: Game state change handler
----------------------------------------------------------------------------
 function COverthrowGameMode:OnGameRulesStateChange()
 	local nNewState = GameRules:State_Get()
-	--print( "OnGameRulesStateChange: " .. nNewState )
 
 	if nNewState == DOTA_GAMERULES_STATE_HERO_SELECTION then
 
@@ -14,48 +8,35 @@ function COverthrowGameMode:OnGameRulesStateChange()
 	if nNewState == DOTA_GAMERULES_STATE_PRE_GAME then
 		local numberOfPlayers = PlayerResource:GetPlayerCount()
 		if numberOfPlayers > 7 then
-			--self.TEAM_KILLS_TO_WIN = 25
-			nCOUNTDOWNTIMER = 901
+
+			nCOUNTDOWNTIMER = 901 * 2
 		elseif numberOfPlayers > 4 and numberOfPlayers <= 7 then
-			--self.TEAM_KILLS_TO_WIN = 20
-			nCOUNTDOWNTIMER = 721
+
+			nCOUNTDOWNTIMER = 721 * 2
 		else
-			--self.TEAM_KILLS_TO_WIN = 15
-			nCOUNTDOWNTIMER = 601
+
+			nCOUNTDOWNTIMER = 601 * 2
 		end
 		if GetMapName() == "forest_solo" then
 			self.TEAM_KILLS_TO_WIN = 25
-		elseif GetMapName() == "desert_duo" then
-			self.TEAM_KILLS_TO_WIN = 30
-		elseif GetMapName() == "desert_quintet" then
-			self.TEAM_KILLS_TO_WIN = 50
-		elseif GetMapName() == "temple_quartet" then
-			self.TEAM_KILLS_TO_WIN = 50
-		else
-			self.TEAM_KILLS_TO_WIN = 30
 		end
-		--print( "Kills to win = " .. tostring(self.TEAM_KILLS_TO_WIN) )
-
+		
 		CustomNetTables:SetTableValue( "game_state", "victory_condition", { kills_to_win = self.TEAM_KILLS_TO_WIN } );
 
 		self._fPreGameStartTime = GameRules:GetGameTime()
 	end
 
 	if nNewState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-		--print( "OnGameRulesStateChange: Game In Progress" )
 		self.countdownEnabled = true
 		CustomGameEventManager:Send_ServerToAllClients( "show_timer", {} )
 		DoEntFire( "center_experience_ring_particles", "Start", "0", 0, self, self  )
 	end
 end
 
---------------------------------------------------------------------------------
--- Event: OnNPCSpawned
---------------------------------------------------------------------------------
 function COverthrowGameMode:OnNPCSpawned( event )
 	local spawnedUnit = EntIndexToHScript( event.entindex )
 	if spawnedUnit:IsRealHero() then
-		-- Destroys the last hit effects
+
 		local deathEffects = spawnedUnit:Attribute_GetIntValue( "effectsID", -1 )
 		if deathEffects ~= -1 then
 			ParticleManager:DestroyParticle( deathEffects, true )
@@ -63,8 +44,7 @@ function COverthrowGameMode:OnNPCSpawned( event )
 		end
 		if self.allSpawned == false then
 			if GetMapName() == "mines_trio" then
-				--print("mines_trio is the map")
-				--print("self.allSpawned is " .. tostring(self.allSpawned) )
+
 				local unitTeam = spawnedUnit:GetTeam()
 				local particleSpawn = ParticleManager:CreateParticleForTeam( "particles/addons_gameplay/player_deferred_light.vpcf", PATTACH_ABSORIGIN, spawnedUnit, unitTeam )
 				ParticleManager:SetParticleControlEnt( particleSpawn, PATTACH_ABSORIGIN, spawnedUnit, PATTACH_ABSORIGIN, "attach_origin", spawnedUnit:GetAbsOrigin(), true )
@@ -73,21 +53,13 @@ function COverthrowGameMode:OnNPCSpawned( event )
 	end
 end
 
---------------------------------------------------------------------------------
--- Event: BountyRunePickupFilter
---------------------------------------------------------------------------------
 function COverthrowGameMode:BountyRunePickupFilter( filterTable )
       filterTable["xp_bounty"] = 2*filterTable["xp_bounty"]
       filterTable["gold_bounty"] = 2*filterTable["gold_bounty"]
       return true
 end
 
----------------------------------------------------------------------------
--- Event: OnTeamKillCredit, see if anyone won
----------------------------------------------------------------------------
 function COverthrowGameMode:OnTeamKillCredit( event )
---	print( "OnKillCredit" )
---	DeepPrint( event )
 
 	local nKillerID = event.killer_userid
 	local nTeamID = event.teamnumber
@@ -108,10 +80,13 @@ function COverthrowGameMode:OnTeamKillCredit( event )
 	if nKillsRemaining <= 0 then
 		GameRules:SetCustomVictoryMessage( self.m_VictoryMessages[nTeamID] )
 		GameRules:SetGameWinner( nTeamID )
+
 		broadcast_kill_event.victory = 1
+
 	elseif nKillsRemaining == 1 then
 		EmitGlobalSound( "ui.npe_objective_complete" )
 		broadcast_kill_event.very_close_to_victory = 1
+
 	elseif nKillsRemaining <= self.CLOSE_TO_VICTORY_THRESHOLD then
 		EmitGlobalSound( "ui.npe_objective_given" )
 		broadcast_kill_event.close_to_victory = 1
@@ -120,9 +95,6 @@ function COverthrowGameMode:OnTeamKillCredit( event )
 	CustomGameEventManager:Send_ServerToAllClients( "kill_event", broadcast_kill_event )
 end
 
----------------------------------------------------------------------------
--- Event: OnEntityKilled
----------------------------------------------------------------------------
 function COverthrowGameMode:OnEntityKilled( event )
 	local killedUnit = EntIndexToHScript( event.entindex_killed )
 	local killedTeam = killedUnit:GetTeam()
@@ -131,8 +103,7 @@ function COverthrowGameMode:OnEntityKilled( event )
 	local extraTime = 0
 	if killedUnit:IsRealHero() then
 		self.allSpawned = true
-		--print("Hero has been killed")
-		--Add extra time if killed by Necro Ult
+
 		if hero:IsRealHero() == true then
 			if event.entindex_inflictor ~= nil then
 				local inflictor_index = event.entindex_inflictor
@@ -150,7 +121,7 @@ function COverthrowGameMode:OnEntityKilled( event )
 			end
 		end
 		if hero:IsRealHero() and heroTeam ~= killedTeam then
-			--print("Granting killer xp")
+
 			if killedUnit:GetTeam() == self.leadingTeam and self.isGameTied == false then
 				local memberID = hero:GetPlayerID()
 				PlayerResource:ModifyGold( memberID, 500, true, 0 )
@@ -200,32 +171,24 @@ function COverthrowGameMode:SetRespawnTime( killedTeam, killedUnit, extraTime )
 	end
 end
 
-
---------------------------------------------------------------------------------
--- Event: OnItemPickUp
---------------------------------------------------------------------------------
 function COverthrowGameMode:OnItemPickUp( event )
 	local item = EntIndexToHScript( event.ItemEntityIndex )
 	local owner = EntIndexToHScript( event.HeroEntityIndex )
 	r = 300
-	--r = RandomInt(200, 400)
+
 	if event.itemname == "item_bag_of_gold" then
-		--print("Bag of gold picked up")
+
 		PlayerResource:ModifyGold( owner:GetPlayerID(), r, true, 0 )
 		SendOverheadEventMessage( owner, OVERHEAD_ALERT_GOLD, owner, r, nil )
-		UTIL_Remove( item ) -- otherwise it pollutes the player inventory
+		UTIL_Remove( item )
 	elseif event.itemname == "item_treasure_chest" then
-		--print("Special Item Picked Up")
+
 		DoEntFire( "item_spawn_particle_" .. self.itemSpawnIndex, "Stop", "0", 0, self, self )
 		COverthrowGameMode:SpecialItemAdd( event )
-		UTIL_Remove( item ) -- otherwise it pollutes the player inventory
+		UTIL_Remove( item )
 	end
 end
 
-
---------------------------------------------------------------------------------
--- Event: OnNpcGoalReached
---------------------------------------------------------------------------------
 function COverthrowGameMode:OnNpcGoalReached( event )
 	local npc = EntIndexToHScript( event.npc_entindex )
 	if npc:GetUnitName() == "npc_dota_treasure_courier" then

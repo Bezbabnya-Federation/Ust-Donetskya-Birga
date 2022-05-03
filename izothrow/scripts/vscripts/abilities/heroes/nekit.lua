@@ -1,4 +1,4 @@
-LinkLuaModifier( "modifier_nekit_suicide_debuff", "abilities/heroes/homunculus.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier( "modifier_nekit_debuff", "abilities/heroes/nekit.lua", LUA_MODIFIER_MOTION_NONE)
 
 nekit_suicide = class({})
 
@@ -16,10 +16,11 @@ end
 
 function nekit_suicide:OnSpellStart()
     if not IsServer() then return end
+
     local duration = self:GetSpecialValueFor("duration")
     local radius = self:GetSpecialValueFor("radius")
-    local damage = self:GetSpecialValueFor("damage")
-
+    local damage = self:GetSpecialValueFor("damage") + self:GetCaster():FindTalentValue("nekit_bonus_1")
+    
     -- self:GetCaster():EmitSound("")
 
     local targets = FindUnitsInRadius(self:GetCaster():GetTeamNumber(),
@@ -33,7 +34,7 @@ function nekit_suicide:OnSpellStart()
     false)
 
     for _,unit in pairs(targets) do
-        unit:AddNewModifier(self:GetCaster(), self, "modifier_nekit_suicide_debuff", { duration = duration * (1 - unit:GetStatusResistance()) } )
+        unit:AddNewModifier(self:GetCaster(), self, "modifier_nekit_debuff", { duration = duration * (1 - unit:GetStatusResistance()) } )
         ApplyDamage({victim = unit, attacker = self:GetCaster(), damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = self})
     end
 
@@ -49,34 +50,34 @@ function nekit_suicide:OnSpellStart()
         damage_flags = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS,
     }
 
-    local talent_damage = self:GetCaster():GetHealth() / 1 -- 100 * self:GetCaster():FindTalentValue("nekit_bonus")
+    local talent_damage = self:GetCaster():GetHealth() / 100 * self:GetCaster():FindTalentValue("nekit_bonus_2")
     local new_health = self:GetCaster():GetHealth() - talent_damage
-    -- if self:GetCaster():HasTalent("nekit_bonus") then
-        -- self:GetCaster():ModifyHealth(new_health, self, false, 0)
-    -- else
+    if self:GetCaster():HasTalent("nekit_bonus_2") then
+        self:GetCaster():ModifyHealth(new_health, self, false, 0)
+    else
         ApplyDamage(damageTable)
-    -- end
+    end
 end
 
-modifier_nekit_suicide_debuff = class({})
+modifier_nekit_debuff = class({})
 
-function modifier_nekit_suicide_debuff:IsPurgable()
+function modifier_nekit_debuff:IsPurgable()
     return false
 end
 
-function modifier_nekit_suicide_debuff:OnCreated()
+function modifier_nekit_debuff:OnCreated()
     if not IsServer() then return end
     self:StartIntervalThink(0.25)
     self:OnIntervalThink()
 end
 
-function modifier_nekit_suicide_debuff:OnIntervalThink()
+function modifier_nekit_debuff:OnIntervalThink()
     if not IsServer() then return end
     local damage = self:GetAbility():GetSpecialValueFor("per_damage")
     ApplyDamage({victim = self:GetParent(), attacker = self:GetCaster(), damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = self:GetAbility()})
 end
 
-function modifier_nekit_suicide_debuff:DeclareFunctions()
+function modifier_nekit_debuff:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
         MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
@@ -85,26 +86,26 @@ function modifier_nekit_suicide_debuff:DeclareFunctions()
     return funcs
 end
 
-function modifier_nekit_suicide_debuff:GetModifierMagicalResistanceBonus()
+function modifier_nekit_debuff:GetModifierMagicalResistanceBonus()
     return self:GetAbility():GetSpecialValueFor( "magical_resistance" )
 end
 
-function modifier_nekit_suicide_debuff:GetModifierMoveSpeedBonus_Percentage()
+function modifier_nekit_debuff:GetModifierMoveSpeedBonus_Percentage()
     return self:GetAbility():GetSpecialValueFor( "movement_speed" )
 end
 
-function modifier_nekit_suicide_debuff:GetEffectName()
+function modifier_nekit_debuff:GetEffectName()
     return "particles/units/heroes/hero_venomancer/venomancer_gale_poison_debuff.vpcf"
 end
 
-function modifier_nekit_suicide_debuff:GetEffectAttachType()
+function modifier_nekit_debuff:GetEffectAttachType()
     return PATTACH_POINT_FOLLOW
 end
 
-function modifier_nekit_suicide_debuff:GetStatusEffectName()
+function modifier_nekit_debuff:GetStatusEffectName()
     return "particles/status_fx/status_effect_poison_venomancer.vpcf"
 end
 
-function modifier_nekit_suicide_debuff:StatusEffectPriority()
+function modifier_nekit_debuff:StatusEffectPriority()
     return 10
 end

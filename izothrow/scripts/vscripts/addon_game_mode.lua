@@ -8,47 +8,60 @@ end
 require( "events" )
 require( "items" )
 require( "utility_functions" )
+require( "overboss" )
+require( "util/base_util")
+require( "util/kvbase")
+require( "util/resource")
 
 function Precache( context )
 
-		PrecacheItemByNameSync( "item_bag_of_gold", context )
-		PrecacheResource( "particle", "particles/items2_fx/veil_of_discord.vpcf", context )	
+	local heroes = LoadKeyValues("scripts/npc/dota_heroes.txt")
+	for k,v in pairs(heroes) do
 
-		PrecacheItemByNameSync( "item_treasure_chest", context )
-		PrecacheModel( "item_treasure_chest", context )
+		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_" .. k:gsub('npc_dota_hero_','') ..".vsndevts", context )  
+	end
 
-		PrecacheUnitByNameSync( "npc_dota_creature_basic_zombie", context )
-        PrecacheModel( "npc_dota_creature_basic_zombie", context )
+	local list = {
+		model = {
+			"item_treasure_chest",
+			"item_bag_of_gold",
+			"npc_boat_1",
+			"npc_boat_2",
+			"npc_boat_3",
+			"npc_dota_creature_basic_zombie",
+			"npc_dota_creature_berserk_zombie",
+			"npc_dota_treasure_courier",
+	  	},
 
-        PrecacheUnitByNameSync( "npc_dota_creature_berserk_zombie", context )
-        PrecacheModel( "npc_dota_creature_berserk_zombie", context )
+		soundfile = {
+			"soundevents/zoldaten.vsndevts",
+		  	"soundevents/game_sound_events.vsndevts",
+		},
 
-		PrecacheUnitByNameSync( "npc_boat_1", context)
-		PrecacheModel( "npc_boat_1", context )
+		particle = {
+			"particles/items2_fx/veil_of_discord.vpcf",
+		},
 
-		PrecacheUnitByNameSync( "npc_boat_2", context)
-		PrecacheModel( "npc_boat_2", context )
+		particle_folder = {
 
-		PrecacheUnitByNameSync( "npc_boat_3", context)
-		PrecacheModel( "npc_boat_3", context )
+		}
+	}
 
-        PrecacheUnitByNameSync( "npc_dota_treasure_courier", context )
-        PrecacheModel( "npc_dota_treasure_courier", context )
+	for k,v in pairs(list) do
+	  for z,x in pairs(v) do 
+		  PrecacheResource(k, x, context)
+	  end
+	end
 
-       	PrecacheResource( "particle", "particles/econ/events/nexon_hero_compendium_2014/teleport_end_nexon_hero_cp_2014.vpcf", context )
-       	PrecacheResource( "particle", "particles/leader/leader_overhead.vpcf", context )
-       	PrecacheResource( "particle", "particles/last_hit/last_hit.vpcf", context )
-       	PrecacheResource( "particle", "particles/addons_gameplay/player_deferred_light.vpcf", context )
-       	PrecacheResource( "particle", "particles/items_fx/black_king_bar_avatar.vpcf", context )
-       	PrecacheResource( "particle", "particles/treasure_courier_death.vpcf", context )
-       	PrecacheResource( "particle", "particles/econ/wards/f2p/f2p_ward/f2p_ward_true_sight_ambient.vpcf", context )
-       	PrecacheResource( "particle", "particles/econ/items/lone_druid/lone_druid_cauldron/lone_druid_bear_entangle_dust_cauldron.vpcf", context )
-       	PrecacheResource( "particle", "particles/newplayer_fx/npx_landslide_debris.vpcf", context )
-		PrecacheResource( "particle", "particles/units/heroes/hero_zuus/zeus_taunt_coin.vpcf", context )
-		PrecacheResource( "particle", "particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", context)
-		PrecacheResource( "particle", "particles/units/heroes/hero_undying/undying_tnt_wlk_golem.vpcf", context)
-    
-		PrecacheResource( "soundfile", "soundevents/game_sound_event.vsndevts", context )
+  local mobs = LoadKeyValues("scripts/npc/npc_units_custom.txt")
+  for k,v in pairs(mobs) do
+		PrecacheUnitByNameSync(k, context)
+  end
+
+  local items = LoadKeyValues("scripts/npc/npc_items_custom.txt")
+  for k,v in pairs(items) do
+		PrecacheItemByNameSync(k, context)
+  end
 end
 
 function Activate()
@@ -63,7 +76,7 @@ function COverthrowGameMode:CustomSpawnCamps()
 end
 
 function COverthrowGameMode:InitGameMode()
-	print( "Overthrow is loaded." )
+	print( "Изотроу загружено." )
 
 	self.m_TeamColors = {}
 	self.m_TeamColors[DOTA_TEAM_GOODGUYS] = { 61, 210, 150 }
@@ -124,19 +137,9 @@ function COverthrowGameMode:InitGameMode()
 
 	GameRules:GetGameModeEntity().COverthrowGameMode = self
 
-	if GetMapName() == "desert_quintet" then
-		GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 5 )
-		GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 5 )
-		GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_CUSTOM_1, 5 )
-		self.m_GoldRadiusMin = 300
-		self.m_GoldRadiusMax = 1400
-		self.m_GoldDropPercent = 8
-
-	else
-		self.m_GoldRadiusMin = 250
-		self.m_GoldRadiusMax = 550
-		self.m_GoldDropPercent = 4
-	end
+	self.m_GoldRadiusMin = 250
+	self.m_GoldRadiusMax = 550
+	self.m_GoldDropPercent = 4
 
 	GameRules:SetCustomGameEndDelay( 0 )
 	GameRules:SetCustomVictoryMessageDuration( 10 )
@@ -195,8 +198,8 @@ end
 
 function COverthrowGameMode:SetUpFountains()
 
-	LinkLuaModifier( "modifier_fountain_aura_lua", LUA_MODIFIER_MOTION_NONE )
-	LinkLuaModifier( "modifier_fountain_aura_effect_lua", LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifiers/modifier_fountain_aura_lua.lua", LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifiers/modifier_fountain_aura_effect_lua.lua", LUA_MODIFIER_MOTION_NONE )
 
 	local fountainEntities = Entities:FindAllByClassname( "ent_dota_fountain")
 	for _,fountainEnt in pairs( fountainEntities ) do
@@ -264,6 +267,7 @@ function COverthrowGameMode:UpdateScoreboard()
 	self.runnerupTeam = sortedTeams[2].teamID
 	self.leadingTeamScore = sortedTeams[1].teamScore
 	self.runnerupTeamScore = sortedTeams[2].teamScore
+
 	if sortedTeams[1].teamScore == sortedTeams[2].teamScore then
 		self.isGameTied = true
 	else
@@ -343,7 +347,7 @@ function COverthrowGameMode:GatherAndRegisterValidTeams()
 	end
 
 	local numTeams = TableCount(foundTeams)
-	print( "GatherValidTeams - Found spawns for a total of " .. numTeams .. " teams" )
+	-- print( "GatherValidTeams - Found spawns for a total of " .. numTeams .. " teams" )
 	
 	local foundTeamsList = {}
 	for t, _ in pairs( foundTeams ) do
@@ -351,7 +355,7 @@ function COverthrowGameMode:GatherAndRegisterValidTeams()
 	end
 
 	if numTeams == 0 then
-		print( "GatherValidTeams - NO team spawns detected, defaulting to GOOD/BAD" )
+		-- print( "GatherValidTeams - NO team spawns detected, defaulting to GOOD/BAD" )
 		table.insert( foundTeamsList, DOTA_TEAM_GOODGUYS )
 		table.insert( foundTeamsList, DOTA_TEAM_BADGUYS )
 		numTeams = 2
@@ -361,12 +365,12 @@ function COverthrowGameMode:GatherAndRegisterValidTeams()
 
 	self.m_GatheredShuffledTeams = ShuffledList( foundTeamsList )
 
-	print( "Final shuffled team list:" )
+	-- print( "Final shuffled team list:" )
 	for _, team in pairs( self.m_GatheredShuffledTeams ) do
 		print( " - " .. team .. " ( " .. GetTeamName( team ) .. " )" )
 	end
 
-	print( "Setting up teams:" )
+	-- print( "Setting up teams:" )
 	for team = 0, (DOTA_TEAM_COUNT-1) do
 		local maxPlayers = 0
 		if ( nil ~= TableFindKey( foundTeamsList, team ) ) then

@@ -733,43 +733,6 @@
 		"AnimationPlaybackRate"  		"1"
 		"AnimationIgnoresModelScale" 	"1"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"modelscale"			"25"
-			}	
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"	"7 9 11 13"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"30 40 50 60"
-				"LinkedSpecialBonus"	"special_bonus_unique_ogre_magi"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"self_bonus"			"30 50 70 90"
-				"LinkedSpecialBonus"	"special_bonus_unique_ogre_magi"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"30"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"multicast_bloodlust_aoe"	"700"
-			}
-
-
-        }
     }
 
 "vine_drinker"
@@ -824,15 +787,6 @@
 		"AnimationPlaybackRate"  		"1"
 		"AnimationIgnoresModelScale" 	"1"
 
-        "OnSpellStart" 
-        {
-            "Damage"
-            {
-                "Target"        "TARGET"
-                "Type"            "DAMAGE_TYPE_MAGICAL"
-                "Damage"        "%AbilityDamage"
-            }
-        }
     }
 
 	"teachers_life"
@@ -893,8 +847,6 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilityType"					"DOTA_UNIT_TARGET_BASIC"
 		"FightRecapLevel"				"1"
-		
-		"AbilitySound"					"Hero_Tusk.WalrusPunch.Target"
 
 		"AbilityCastPoint"				"0"
 		"AbilityCastRange"				"150"
@@ -903,36 +855,6 @@
 		"AbilityCooldown"				"20 15 10"
 		"AbilityManaCost"				"80"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"crit_multiplier"			"375 425 450"
-				"LinkedSpecialBonus"		"special_bonus_unique_tusk"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"air_time"					"1.5"
-				"LinkedSpecialBonus"		"special_bonus_unique_tusk_7"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"slow_duration"				"2.0 3.0 4.0"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"move_slow"					"40"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"push_length"				"1000"
-			}
-		}
 	}
 	//Sirotkin's Ability End
 
@@ -962,12 +884,14 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"outgoing_damage"			"-35 -30 -25 0"
+				"LinkedSpecialBonus"		"zoldaten_bonus"
 			}
 
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
 				"outgoing_damage_tooltip"	"75 80 85 100"
+				"LinkedSpecialBonus"		"zoldaten_bonus"
 			}
 
 			"04"
@@ -986,6 +910,22 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"illusion_count"			"2 3 4 5"
+			}			
+		}
+	}
+
+	"zoldaten_bonus"
+	{
+		"BaseClass"						"special_bonus_undefined"														
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"15"
 			}			
 		}
 	}
@@ -1058,6 +998,21 @@
 		}
 	}
 	"izotov_bonus_2"
+	{
+		"BaseClass"						"special_bonus_undefined"														
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"						"0"
+			}
+		}
+	}
+
+	"izotov_bonus_3"
 	{
 		"BaseClass"						"special_bonus_undefined"														
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
@@ -1235,7 +1190,7 @@
 		    {
 		        "var_type"          "FIELD_INTEGER"
 		        "damage"            "1000 1500 2500"
-				"LinkedSpecialBonus"	"special_bonus_birzha_homunculus_3"
+				"LinkedSpecialBonus"	"nekit_bonus"
 		    }
 		    "02"
 		    {
@@ -1265,7 +1220,22 @@
 		}
 	}
 
-	"nekit_bonus"
+	"nekit_bonus_1"
+	{
+		"BaseClass"						"special_bonus_undefined"														
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"						"90"
+			}
+		}
+	}
+
+	"nekit_bonus_2"
 	{
 		"BaseClass"						"special_bonus_undefined"														
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"

@@ -36,7 +36,7 @@ function modifier_sirotkin_teachers_life:OnTakeDamage (event)
         local ability = self:GetAbility()
         local damage_reflect_pct = (ability:GetSpecialValueFor("damage") + self:GetCaster():FindTalentValue("sirotkin_bonus")) * 0.01
         local radius = ability:GetSpecialValueFor("radius")
-
+        
         if self:GetParent():PassivesDisabled() or self:GetParent():IsIllusion() then return end
         if caster:IsAlive() then
             caster:SetHealth(caster:GetHealth() + (post_damage * damage_reflect_pct) )

@@ -68,11 +68,8 @@
 		"Ability4"					"teachers_life"	
         "Ability5"                  "generic_hidden"												
 		"Ability6"					"feminism"	
-        "Ability25"		            ""
 
         "Ability17"		            "sirotkin_bonus"
-        "Ability16"                 "special_bonus_unique_tusk_7"
-        "Ability15"                 "special_bonus_unique_tusk"
 		
 		"VisionNighttimeRange"      "1800"
    }
@@ -103,6 +100,9 @@
         "Ability2"					"pudge_meat_hook"
         "Ability3"					"meepo_earthbind"
         "Ability4"                  "nekit_suicide"
+
+        "Ability17"                 "nekit_bonus_1"
+        "Ability18"                 "nekit_bonus_2"
 
         "VisionNighttimeRange"       "1800"                                    
    }
