@@ -1,4 +1,4 @@
-function COverthrowGameMode:OnGameRulesStateChange()
+function IzothrowGameMode:OnGameRulesStateChange()
 	local nNewState = GameRules:State_Get()
 
 	if nNewState == DOTA_GAMERULES_STATE_HERO_SELECTION then
@@ -33,7 +33,7 @@ function COverthrowGameMode:OnGameRulesStateChange()
 	end
 end
 
-function COverthrowGameMode:OnNPCSpawned( event )
+function IzothrowGameMode:OnNPCSpawned( event )
 	local spawnedUnit = EntIndexToHScript( event.entindex )
 	if spawnedUnit:IsRealHero() then
 
@@ -53,13 +53,13 @@ function COverthrowGameMode:OnNPCSpawned( event )
 	end
 end
 
-function COverthrowGameMode:BountyRunePickupFilter( filterTable )
+function IzothrowGameMode:BountyRunePickupFilter( filterTable )
       filterTable["xp_bounty"] = 2*filterTable["xp_bounty"]
       filterTable["gold_bounty"] = 2*filterTable["gold_bounty"]
       return true
 end
 
-function COverthrowGameMode:OnTeamKillCredit( event )
+function IzothrowGameMode:OnTeamKillCredit( event )
 
 	local nKillerID = event.killer_userid
 	local nTeamID = event.teamnumber
@@ -95,7 +95,7 @@ function COverthrowGameMode:OnTeamKillCredit( event )
 	CustomGameEventManager:Send_ServerToAllClients( "kill_event", broadcast_kill_event )
 end
 
-function COverthrowGameMode:OnEntityKilled( event )
+function IzothrowGameMode:OnEntityKilled( event )
 	local killedUnit = EntIndexToHScript( event.entindex_killed )
 	local killedTeam = killedUnit:GetTeam()
 	local hero = EntIndexToHScript( event.entindex_attacker )
@@ -137,33 +137,30 @@ function COverthrowGameMode:OnEntityKilled( event )
 				hero:AddExperience( 50, 0, false, false )
 			end
 		end
-		--Granting XP to all heroes who assisted
+
 		local allHeroes = HeroList:GetAllHeroes()
 		for _,attacker in pairs( allHeroes ) do
-			--print(killedUnit:GetNumAttackers())
+
 			for i = 0, killedUnit:GetNumAttackers() - 1 do
 				if attacker == killedUnit:GetAttacker( i ) then
-					--print("Granting assist xp")
+
 					attacker:AddExperience( 25, 0, false, false )
 				end
 			end
 		end
 		if killedUnit:GetRespawnTime() > 10 then
-			--print("Hero has long respawn time")
 			if killedUnit:IsReincarnating() == true then
-				--print("Set time for Wraith King respawn disabled")
 				return nil
 			else
-				COverthrowGameMode:SetRespawnTime( killedTeam, killedUnit, extraTime )
+				IzothrowGameMode:SetRespawnTime( killedTeam, killedUnit, extraTime )
 			end
 		else
-			COverthrowGameMode:SetRespawnTime( killedTeam, killedUnit, extraTime )
+			IzothrowGameMode:SetRespawnTime( killedTeam, killedUnit, extraTime )
 		end
 	end
 end
 
-function COverthrowGameMode:SetRespawnTime( killedTeam, killedUnit, extraTime )
-	--print("Setting time for respawn")
+function IzothrowGameMode:SetRespawnTime( killedTeam, killedUnit, extraTime )
 	if killedTeam == self.leadingTeam and self.isGameTied == false then
 		killedUnit:SetTimeUntilRespawn( 20 + extraTime )
 	else
@@ -171,7 +168,7 @@ function COverthrowGameMode:SetRespawnTime( killedTeam, killedUnit, extraTime )
 	end
 end
 
-function COverthrowGameMode:OnItemPickUp( event )
+function IzothrowGameMode:OnItemPickUp( event )
 	local item = EntIndexToHScript( event.ItemEntityIndex )
 	local owner = EntIndexToHScript( event.HeroEntityIndex )
 	r = 300
@@ -184,14 +181,14 @@ function COverthrowGameMode:OnItemPickUp( event )
 	elseif event.itemname == "item_treasure_chest" then
 
 		DoEntFire( "item_spawn_particle_" .. self.itemSpawnIndex, "Stop", "0", 0, self, self )
-		COverthrowGameMode:SpecialItemAdd( event )
+		IzothrowGameMode:SpecialItemAdd( event )
 		UTIL_Remove( item )
 	end
 end
 
-function COverthrowGameMode:OnNpcGoalReached( event )
+function IzothrowGameMode:OnNpcGoalReached( event )
 	local npc = EntIndexToHScript( event.npc_entindex )
 	if npc:GetUnitName() == "npc_dota_treasure_courier" then
-		COverthrowGameMode:TreasureDrop( npc )
+		IzothrowGameMode:TreasureDrop( npc )
 	end
 end

@@ -1,14 +1,13 @@
 _G.nNEUTRAL_TEAM = 4
 _G.nCOUNTDOWNTIMER = 1001
 
-if COverthrowGameMode == nil then
-	_G.COverthrowGameMode = class({})
+if IzothrowGameMode == nil then
+	_G.IzothrowGameMode = class({})
 end
 
 require( "events" )
 require( "items" )
-require( "utility_functions" )
-require( "overboss" )
+require( "util/func_util" )
 require( "util/base_util")
 require( "util/kvbase")
 require( "util/resource")
@@ -34,7 +33,7 @@ function Precache( context )
 	  	},
 
 		soundfile = {
-			"soundevents/zoldaten.vsndevts",
+			"soundevents/heroes/zoldaten.vsndevts",
 		  	"soundevents/game_sound_events.vsndevts",
 		},
 
@@ -65,17 +64,17 @@ function Precache( context )
 end
 
 function Activate()
-	COverthrowGameMode:InitGameMode()
-	COverthrowGameMode:CustomSpawnCamps()
+	IzothrowGameMode:InitGameMode()
+	IzothrowGameMode:CustomSpawnCamps()
 end
 
-function COverthrowGameMode:CustomSpawnCamps()
+function IzothrowGameMode:CustomSpawnCamps()
 	for name,_ in pairs(spawncamps) do
 	spawnunits(name)
 	end
 end
 
-function COverthrowGameMode:InitGameMode()
+function IzothrowGameMode:InitGameMode()
 	print( "Изотроу загружено." )
 
 	self.m_TeamColors = {}
@@ -135,7 +134,7 @@ function COverthrowGameMode:InitGameMode()
 
 	self:GatherAndRegisterValidTeams()
 
-	GameRules:GetGameModeEntity().COverthrowGameMode = self
+	GameRules:GetGameModeEntity().IzothrowGameMode = self
 
 	self.m_GoldRadiusMin = 250
 	self.m_GoldRadiusMax = 550
@@ -166,15 +165,15 @@ function COverthrowGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetFountainPercentageManaRegen( 0 )
 	GameRules:GetGameModeEntity():SetFountainConstantManaRegen( 0 )
 
-	GameRules:GetGameModeEntity():SetBountyRunePickupFilter( Dynamic_Wrap( COverthrowGameMode, "BountyRunePickupFilter" ), self )
-	GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( COverthrowGameMode, "ExecuteOrderFilter" ), self )
+	GameRules:GetGameModeEntity():SetBountyRunePickupFilter( Dynamic_Wrap( IzothrowGameMode, "BountyRunePickupFilter" ), self )
+	GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( IzothrowGameMode, "ExecuteOrderFilter" ), self )
 
-	ListenToGameEvent( "game_rules_state_change", Dynamic_Wrap( COverthrowGameMode, 'OnGameRulesStateChange' ), self )
-	ListenToGameEvent( "npc_spawned", Dynamic_Wrap( COverthrowGameMode, "OnNPCSpawned" ), self )
-	ListenToGameEvent( "dota_team_kill_credit", Dynamic_Wrap( COverthrowGameMode, 'OnTeamKillCredit' ), self )
-	ListenToGameEvent( "entity_killed", Dynamic_Wrap( COverthrowGameMode, 'OnEntityKilled' ), self )
-	ListenToGameEvent( "dota_item_picked_up", Dynamic_Wrap( COverthrowGameMode, "OnItemPickUp"), self )
-	ListenToGameEvent( "dota_npc_goal_reached", Dynamic_Wrap( COverthrowGameMode, "OnNpcGoalReached" ), self )
+	ListenToGameEvent( "game_rules_state_change", Dynamic_Wrap( IzothrowGameMode, 'OnGameRulesStateChange' ), self )
+	ListenToGameEvent( "npc_spawned", Dynamic_Wrap( IzothrowGameMode, "OnNPCSpawned" ), self )
+	ListenToGameEvent( "dota_team_kill_credit", Dynamic_Wrap( IzothrowGameMode, 'OnTeamKillCredit' ), self )
+	ListenToGameEvent( "entity_killed", Dynamic_Wrap( IzothrowGameMode, 'OnEntityKilled' ), self )
+	ListenToGameEvent( "dota_item_picked_up", Dynamic_Wrap( IzothrowGameMode, "OnItemPickUp"), self )
+	ListenToGameEvent( "dota_npc_goal_reached", Dynamic_Wrap( IzothrowGameMode, "OnNpcGoalReached" ), self )
 
 	Convars:RegisterCommand( "overthrow_force_item_drop", function(...) self:ForceSpawnItem() end, "Force an item drop.", FCVAR_CHEAT )
 	Convars:RegisterCommand( "overthrow_force_gold_drop", function(...) self:ForceSpawnGold() end, "Force gold drop.", FCVAR_CHEAT )
@@ -182,7 +181,7 @@ function COverthrowGameMode:InitGameMode()
 	Convars:RegisterCommand( "overthrow_force_end_game", function(...) return self:EndGame( DOTA_TEAM_GOODGUYS ) end, "Force the game to end.", FCVAR_CHEAT )
 	Convars:SetInt( "dota_server_side_animation_heroesonly", 0 )
 
-	COverthrowGameMode:SetUpFountains()
+	IzothrowGameMode:SetUpFountains()
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, 1 ) 
 
 	spawncamps = {}
@@ -196,7 +195,7 @@ function COverthrowGameMode:InitGameMode()
 	end
 end
 
-function COverthrowGameMode:SetUpFountains()
+function IzothrowGameMode:SetUpFountains()
 
 	LinkLuaModifier( "modifiers/modifier_fountain_aura_lua.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifiers/modifier_fountain_aura_effect_lua.lua", LUA_MODIFIER_MOTION_NONE )
@@ -207,7 +206,7 @@ function COverthrowGameMode:SetUpFountains()
 	end
 end
 
-function COverthrowGameMode:ColorForTeam( teamID )
+function IzothrowGameMode:ColorForTeam( teamID )
 	local color = self.m_TeamColors[ teamID ]
 	if color == nil then
 		color = { 255, 255, 255 }
@@ -215,7 +214,7 @@ function COverthrowGameMode:ColorForTeam( teamID )
 	return color
 end
 
-function COverthrowGameMode:EndGame( victoryTeam )
+function IzothrowGameMode:EndGame( victoryTeam )
 	local overBoss = Entities:FindByName( nil, "@overboss" )
 	if overBoss then
 		local celebrate = overBoss:FindAbilityByName( 'dota_ability_celebrate' )
@@ -227,7 +226,7 @@ function COverthrowGameMode:EndGame( victoryTeam )
 	GameRules:SetGameWinner( victoryTeam )
 end
 
-function COverthrowGameMode:UpdatePlayerColor( nPlayerID )
+function IzothrowGameMode:UpdatePlayerColor( nPlayerID )
 	if not PlayerResource:HasSelectedHero( nPlayerID ) then
 		return
 	end
@@ -242,7 +241,7 @@ function COverthrowGameMode:UpdatePlayerColor( nPlayerID )
 	PlayerResource:SetCustomPlayerColor( nPlayerID, color[1], color[2], color[3] )
 end
 
-function COverthrowGameMode:UpdateScoreboard()
+function IzothrowGameMode:UpdateScoreboard()
 	local sortedTeams = {}
 	for _, team in pairs( self.m_GatheredShuffledTeams ) do
 		table.insert( sortedTeams, { teamID = team, teamScore = GetTeamHeroKills( team ) } )
@@ -300,7 +299,7 @@ function COverthrowGameMode:UpdateScoreboard()
 	end
 end
 
-function COverthrowGameMode:OnThink()
+function IzothrowGameMode:OnThink()
 	for nPlayerID = 0, (DOTA_MAX_TEAM_PLAYERS-1) do
 		self:UpdatePlayerColor( nPlayerID )
 	end
@@ -320,7 +319,7 @@ function COverthrowGameMode:OnThink()
 			if self.isGameTied == false then
 
 				GameRules:SetCustomVictoryMessage( self.m_VictoryMessages[self.leadingTeam] )
-				COverthrowGameMode:EndGame( self.leadingTeam )
+				IzothrowGameMode:EndGame( self.leadingTeam )
 				self.countdownEnabled = false
 
 			else
@@ -332,14 +331,14 @@ function COverthrowGameMode:OnThink()
 	end
 	
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-		COverthrowGameMode:ThinkGoldDrop()
-		COverthrowGameMode:ThinkSpecialItemDrop()
+		IzothrowGameMode:ThinkGoldDrop()
+		IzothrowGameMode:ThinkSpecialItemDrop()
 	end
 
 	return 1
 end
 
-function COverthrowGameMode:GatherAndRegisterValidTeams()
+function IzothrowGameMode:GatherAndRegisterValidTeams()
 
 	local foundTeams = {}
 	for _, playerStart in pairs( Entities:FindAllByClassname( "info_player_start_dota" ) ) do
@@ -381,7 +380,7 @@ function COverthrowGameMode:GatherAndRegisterValidTeams()
 	end
 end
 
-function COverthrowGameMode:spawncamp(campname)
+function IzothrowGameMode:spawncamp(campname)
 	spawnunits(campname)
 end
 
@@ -408,7 +407,7 @@ function spawnunits(campname)
     end
 end
 
-function COverthrowGameMode:ExecuteOrderFilter( filterTable )
+function IzothrowGameMode:ExecuteOrderFilter( filterTable )
 
 	local orderType = filterTable["order_type"]
 	if ( orderType ~= DOTA_UNIT_ORDER_PICKUP_ITEM or filterTable["issuer_player_id_const"] == -1 ) then

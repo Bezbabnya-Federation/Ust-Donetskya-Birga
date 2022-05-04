@@ -1,4 +1,4 @@
-COverthrowGameMode.PARTICLES_LIST = {
+IzothrowGameMode.PARTICLES_LIST = {
 
     "particles/last_hit/last_hit.vpcf",
     "particles/addons_gameplay/player_deferred_light.vpcf",
