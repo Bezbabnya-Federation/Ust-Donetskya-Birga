@@ -1,16 +1,21 @@
-IzothrowGameMode.PARTICLES_LIST = {
-
-    "particles/last_hit/last_hit.vpcf",
-    "particles/addons_gameplay/player_deferred_light.vpcf",
-    "particles/items_fx/black_king_bar_avatar.vpcf",
-    "particles/treasure_courier_death.vpcf",
-    "particles/econ/wards/f2p/f2p_ward/f2p_ward_true_sight_ambient.vpcf",
-    "particles/econ/items/lone_druid/lone_druid_cauldron/lone_druid_bear_entangle_dust_cauldron.vpcf",
-    "particles/newplayer_fx/npx_landslide_debris.vpcf",
-    "particles/units/heroes/hero_zuus/zeus_taunt_coin.vpcf",
-    "particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf",
-    "particles/units/heroes/hero_undying/undying_tnt_wlk_golem.vpcf",
-    "particles/leader/leader_overhead.vpcf",
-    "particles/econ/events/nexon_hero_compendium_2014/teleport_end_nexon_hero_cp_2014.vpcf"
-    
-  }
+IzothrowGameMode.PARTICLES_LIST = 
+{
+  "particles/last_hit/last_hit.vpcf",
+  "particles/addons_gameplay/player_deferred_light.vpcf",
+  "particles/items_fx/black_king_bar_avatar.vpcf",
+  "particles/treasure_courier_death.vpcf",
+  "particles/newplayer_fx/npx_landslide_debris.vpcf",
+  "particles/units/heroes/hero_zuus/zeus_taunt_coin.vpcf",
+  "particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf",
+  "particles/units/heroes/hero_undying/undying_tnt_wlk_golem.vpcf",
+  "particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion.vpcf",
+  "particles/units/heroes/hero_omniknight/omniknight_repel_buff_b.vpcf",
+  "particles/leader/leader_overhead.vpcf",
+  "particles/generic_gameplay/generic_stunned.vpcf",
+  "particles/econ/events/nexon_hero_compendium_2014/teleport_end_nexon_hero_cp_2014.vpcf",
+  "particles/econ/items/phantom_assassin/phantom_assassin_weapon_runed_scythe/phantom_assassin_attack_blur_crit_runed_scythe.vpcf",
+  "particles/econ/wards/f2p/f2p_ward/f2p_ward_true_sight_ambient.vpcf",
+  "particles/econ/items/omniknight/hammer_ti6_immortal/omniknight_purification_ti6_immortal.vpcf",
+  "particles/econ/items/lone_druid/lone_druid_cauldron/lone_druid_bear_entangle_dust_cauldron.vpcf",
+  "particles/custom/misc/general_blink_start.vpcf",
+}

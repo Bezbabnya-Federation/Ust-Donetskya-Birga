@@ -1,13 +1,33 @@
 "CustomHeroList"
 {
-	"npc_dota_hero_brewmaster"										"1"
-	"npc_dota_hero_sniper"											"1"
-	"npc_dota_hero_kunkka"											"1"
-	"npc_dota_hero_rubick"											"1"
-	"npc_dota_hero_undying"											"1"
-	"npc_dota_hero_antimage"										"1"
-	"npc_dota_hero_techies"											"1"
-	"npc_dota_hero_shredder"										"1"
+	// REAL LIFE PEOPLE
+	"npc_dota_hero_brewmaster"										"1" // SIROTKIN
+	"npc_dota_hero_kunkka"											"1" // IZOTOV
+	"npc_dota_hero_shredder"										"1" // MIXALICH
+	"npc_dota_hero_alchemist"										"1" // IRISHKA
+	"npc_dota_hero_dawnbreaker"										"1" // INNA FEDEROVNA
+
+	// REAL LIFE KRUTOU PEOPLE
+	"npc_dota_hero_pudge"											"1" // SOLOVEY
+	"npc_dota_hero_earthshaker" 									"1" // KATS
+	"npc_dota_hero_bristleback"										"1" // ZELENSKY
+
+	// MA BOYS
+	"npc_dota_hero_rubick"											"1" // KERIL
+	"npc_dota_hero_antimage"										"1" // NEKIT
+	"npc_dota_hero_marcy"											"1" // JENUA
+	"npc_dota_hero_meepo"											"1" // VLADOS
+	"npc_dota_hero_sven"											"1" // BEVZ
+	"npc_dota_hero_axe"												"1" // MISHA
+	"npc_dota_hero_terrorblade"										"1" // SANYA
+	"npc_dota_hero_invoker"											"1" // RUSLAN
+	"npc_dota_hero_ogre_magi"										"1" // DONEL
+	"npc_dota_hero_juggernaut"										"1" // ARTEM
+	"npc_dota_hero_dragon_knight"									"1" // ARTEMNOS
+	"npc_dota_hero_monkeyking"										"1" // VLADOS 
+	
+	// VIMESHLENY
+	"npc_dota_hero_sniper"											"1" // SSOVEC
+	"npc_dota_hero_undying"											"1" // UROD
+	"npc_dota_hero_techies"											"1" // MINE
 }
-
-

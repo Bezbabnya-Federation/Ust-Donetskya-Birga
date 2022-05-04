@@ -77,3 +77,23 @@ nekit_bonus_2 = {
     RemoveOnDeath = function() return false end,
     AllowIllusionDuplicate = function() return true end,
 }
+
+zelensky_bonus_2 = class ({})
+
+zelensky_bonus_2 = {
+    IsHidden = function() return true end,
+    IsPurgable = function() return false end,
+    IsDebuff = function() return false end,
+    RemoveOnDeath = function() return false end,
+    AllowIllusionDuplicate = function() return true end,
+}
+
+zelensky_bonus = class ({})
+
+zelensky_bonus = {
+    IsHidden = function() return true end,
+    IsPurgable = function() return false end,
+    IsDebuff = function() return false end,
+    RemoveOnDeath = function() return false end,
+    AllowIllusionDuplicate = function() return true end,
+}

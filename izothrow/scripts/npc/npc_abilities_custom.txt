@@ -340,9 +340,6 @@
            }
     }
 
-	/=================================================================================================================
-	// Ability: Treasure Courier
-	//=================================================================================================================
 	"dota_ability_treasure_courier"
 	{
 		"BaseClass"          			    "ability_datadriven"
@@ -376,9 +373,6 @@
 		}
 	}
 
-	//=================================================================================================================
-	// Ability: Dummy
-	//=================================================================================================================
 	"dota_ability_dummy"
 	{
 		"BaseClass"          			    "ability_datadriven"
@@ -405,9 +399,7 @@
 			}
 		}
 	}	
-	//=================================================================================================================
-	// Ability: Traps
-	//=================================================================================================================
+
 	"trap_unselectable"
   	{
 	    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -445,8 +437,9 @@
 // ИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУ
 // ИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУИЗОТОВТРОУ
 
-//Sirotkin's ability
-"vine_creator"
+	// REAL LIFE PEOPLE
+	//Sirotkin's ability
+	"vine_creator"
     {
         "BaseClass"                     "ability_datadriven"
 
@@ -475,7 +468,7 @@
 
     }
 
-"vine_drinker"
+	"vine_drinker"
 	{
 		"BaseClass"                     "ability_datadriven"
         "AbilityTextureName"            "Sirotkin/vine_drinker"
@@ -596,82 +589,9 @@
 		"AbilityManaCost"				"80"
 
 	}
-	//Sirotkin's Ability End
+	// Sirotkin's Ability End
 
-	//ZOLDATEN ABILITY START
-	"zoldaten_spawn"
-	{
-		"BaseClass"                     	"ability_lua"
-		"ScriptFile"						"abilities/heroes/zoldaten.lua"
-        "AbilityTextureName"            	"Zoldaten/zoldatenspawn"
-
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityCastAnimation"				"ACT_DOTA_CAST_ABILITY_1"
-
-		"AbilityCastPoint"					"0.65"
-		"AbilityManaCost"					"70"
-		"AbilityCooldown"					"24"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"illusion_duration"			"14"
-			}
-
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"outgoing_damage"			"-35 -30 -25 0"
-				"LinkedSpecialBonus"		"zoldaten_bonus"
-			}
-
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"outgoing_damage_tooltip"	"75 80 85 100"
-				"LinkedSpecialBonus"		"zoldaten_bonus"
-			}
-
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"incoming_damage"			"120"
-			}
-
-			"05"
-			{
-				"var_type"								"FIELD_INTEGER"
-				"tooltip_incoming_damage_total_pct"		"270"
-			}
-
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"illusion_count"			"2 3 4 5"
-			}			
-		}
-	}
-
-	"zoldaten_bonus"
-	{
-		"BaseClass"						"special_bonus_undefined"														
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"value"					"15"
-			}			
-		}
-	}
-	//ZOLDATEN ABILITY END
-
-	//IZOTOV ABILITY START
+	// IZOTOV ABILITY START
 	"zombie_spawn"
 	{
 		"BaseClass"							"ability_lua"
@@ -828,7 +748,7 @@
 		"AbilityDamage"					"600 1400 2200"
 		"AbilityManaCost"				"150 225 300"
 
-		// "AbilityDraftUltShardAbility"	"kunkka_tidal_wave"
+		"AbilityDraftUltShardAbility"	"kunkka_tidal_wave"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_GHOST_SHIP"
 		"AbilityCastGestureSlot"		"DEFAULT"
 		
@@ -901,10 +821,187 @@
 			}
 		}
 	}
+	// IZOTOV ABILITY END
 
-	//IZOTOV ABILITY END
+	// MIXA ABILITY START
+	"tank"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/heroes/mixalich.lua"
 
-	//NEKIT ABILITY START
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		"AbilityTextureName"			"Mixalich/Tank"
+
+		"AbilityCastRange"				"350"
+		"AbilityCastPoint"				"0.35"
+		"AbilityCooldown"				"70"
+		"AbilityManaCost"				"150"
+
+		"AOERadius"						"600"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"65 120 220"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"pct_damage"			"5 10 20"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"5 10 15"
+			}
+		}
+	}
+	// MIXA ABILITY END
+	// REAL LIFE PEOPLE END
+
+	// REAL LIFE KRUTOU PEOPLE
+	// ZELENSKY ABILITY START
+	"chornobaivka"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/heroes/zelensky.lua"
+		
+		"AbilityBehavior"           	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+		
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		
+		"AbilityTextureName"          	"Zelensky/Chornobaivka"
+		
+		"AOERadius"               		"%target_radius"
+		
+		"AbilityChannelTime"			"4"
+		"AbilityCastRange"            	"900"
+		"AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate"         "1"
+		"AnimationIgnoresModelScale"    "1"
+		"AbilityManaCost"           	"180 220 260 300"
+		"AbilityCooldown"           	"25 30 35 36"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"            "FIELD_INTEGER"
+				"damage"            "175 200 225 250"
+			}
+
+			"02"
+			{
+				"var_type"            "FIELD_FLOAT"
+				"int_multi"           "1 1.25 1.5 1.75"
+				"LinkedSpecialBonus"	"zelensky_bonus_2"
+			}
+
+			"03"
+			{
+				"var_type"            "FIELD_INTEGER"
+				"radius"            	"175"
+			}
+
+			"04"
+			{
+				"var_type"            "FIELD_INTEGER"
+				"target_radius"         "425"
+			}
+
+			"05"
+			{
+				"var_type"            "FIELD_INTEGER"
+				"blasts"            "9 12 15 18"
+				"LinkedSpecialBonus"	"zelensky_bonus"
+			}
+		}
+	}
+
+	"zelensky_bonus"
+	{
+		"BaseClass"						"special_bonus_undefined"														
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"						"6"
+			}
+		}
+	}
+
+	"zelensky_bonus_2"
+	{
+		"BaseClass"						"special_bonus_undefined"														
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"						"0.5"
+			}
+		}
+	}
+	// ZELENSKY ABILITY END
+	// REAL LIFE KRUTOU PEOPLE END
+
+	// MA BOYS
+	// KERIL ABILITY START
+		
+	"keril_umn"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/heroes/kiril.lua"
+		"AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"     	"Keril/Umniy"
+		"MaxLevel"              	"1"
+		"RequiredLevel"          	"10"
+		"AbilityCooldown"         	"1"
+		"SpellDispellableType"		"SPELL_DISPELLABLE_NO"
+	  
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"                    	"FIELD_INTEGER"
+				"bonus_intellect"             	"1"
+				"LinkedSpecialBonus"			"keril_bonus"
+			}
+		}
+	}
+
+	"keril_bonus"
+	{
+		"BaseClass"						"special_bonus_undefined"														
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"						"1"
+			}
+		}
+	}
+	// KERIL ABILITY END
+	// NEKIT ABILITY START
 
 	"nekit_suicide"
 	{
@@ -962,74 +1059,120 @@
 
 	"nekit_bonus_1"
 	{
-		"BaseClass"						"special_bonus_undefined"														
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"					"special_bonus_undefined"														
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"value"						"90"
+				"var_type"			"FIELD_FLOAT"
+				"value"				"90"
 			}
 		}
 	}
 
 	"nekit_bonus_2"
 	{
-		"BaseClass"						"special_bonus_undefined"														
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"					"special_bonus_undefined"														
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"value"				"90"
+			}
+		}
+	}
+	// NEKIT ABILITY END
+
+	// DONEL ABILITY START
+
+	// DONEL ABILITY END
+
+	// ARTEMNOS START
+	
+	// ARTEMNOS END
+
+	// VLADOS START
+
+	// VLADOS END
+	// MA BOYS END
+
+	// VIMESHLENY
+	// ZOLDATEN ABILITY START
+	"zoldaten_spawn"
+	{
+		"BaseClass"                     	"ability_lua"
+		"ScriptFile"						"abilities/heroes/zoldaten.lua"
+        "AbilityTextureName"            	"Zoldaten/zoldatenspawn"
+
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCastAnimation"				"ACT_DOTA_CAST_ABILITY_1"
+
+		"AbilityCastPoint"					"0.65"
+		"AbilityManaCost"					"70"
+		"AbilityCooldown"					"24"
+
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"value"						"90"
+				"illusion_duration"			"14"
 			}
+
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"outgoing_damage"			"-35 -30 -25 0"
+				"LinkedSpecialBonus"		"zoldaten_bonus"
+			}
+
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"outgoing_damage_tooltip"	"75 80 85 100"
+				"LinkedSpecialBonus"		"zoldaten_bonus"
+			}
+
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"incoming_damage"			"120"
+			}
+
+			"05"
+			{
+				"var_type"								"FIELD_INTEGER"
+				"tooltip_incoming_damage_total_pct"		"270"
+			}
+
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"illusion_count"			"2 3 4 5"
+			}			
 		}
 	}
-	//NEKIT ABILITY END
 
-	//MIXA ABILITY START
-	"tank"
+	"zoldaten_bonus"
 	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/heroes/mixalich.lua"
+		"BaseClass"						"special_bonus_undefined"														
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-
-		"AbilityTextureName"			"Mixalich/Tank"
-
-		"AbilityCastRange"				"350"
-		"AbilityCastPoint"				"0.35"
-		"AbilityCooldown"				"70"
-		"AbilityManaCost"				"150"
-
-		"AOERadius"						"600"
-		
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"65 120 220"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"pct_damage"			"5 10 20"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"5 10 15"
-			}
+				"value"					"15"
+			}			
 		}
 	}
-	//MIXA ABILITY END
 }
+	// ZOLDATEN ABILITY END
+	// VIMESHLENY END

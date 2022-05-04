@@ -1,116 +1,160 @@
 "DOTAHeroes"
 {
-  "npc_dota_hero_kunkka"
-   {
-       "override_hero"				"npc_dota_hero_kunkka"
-
-       "SoundSet"					"hero_kunkka"
-
-       "AttributeBaseStrength"			"25"
-       "AttributeStrengthGain"			"2.1"
-       "AttributeBaseIntelligence"		"22"
-       "AttributeIntelligenceGain"		"1.8"
-       "AttributeBaseAgility"			"18"
-       "AttributeAgilityGain"			"1.8"
-
-       "Ability1"					"axe_berserkers_call"
-       "Ability2"					"axe_counter_helix"
-       "Ability3"					"skeleton_king_reincarnation"
-       "Ability4"                   "zombie_spawn"
-       "Ability5"                   "kunkka_ghostship"
-       "Ability6"                   "generic_hidden"
-
-       "Ability10"                  "izotov_bonus_1"
-       "Ability11"                  "izotov_bonus_2"
-       "Ability12"                  "special_bonus_unique_kunkka_3"
-
-       "VisionNighttimeRange"       "1800"                                  
-   }
-
-   "npc_dota_hero_shredder"
-   {
-    "override_hero"				"npc_dota_hero_shredder"
-
-    "SoundSet"					"hero_shredder"
-
-    "Ability1"					"tank"
-
-    "VisionNighttimeRange"		"1800"   
-   }
-
-   "npc_dota_hero_sniper"
-   {
-       "override_hero"				"npc_dota_hero_sniper"
-
-       "SoundSet"					"hero_sniper"
-
-       "Ability1"					"bounty_hunter_wind_walk"
-       "Ability2"					"zoldaten_spawn"
-       "Ability3"					"abaddon_frostmourne"
-
-       "Ability10"                  "zoldaten_bonus"
-
-       "VisionNighttimeRange"		"1800"                                  
-   }
-
-   "npc_dota_hero_brewmaster"
-   {
+	// REAL LIFE PEOPLE
+    "npc_dota_hero_brewmaster"
+    {
         "DisableWearables"			"1"	
-        "ModelScale"				"1.25"
-
-		"override_hero"				"npc_dota_hero_brewmaster"
-
-		"SoundSet"				 	"hero_brewmaster"
-
-		"Ability1"					"vine_creator"
-		"Ability2"					"vine_drinker"
-		"Ability3"					"goodbye"									
-		"Ability4"					"teachers_life"	
-        "Ability5"                  "generic_hidden"												
-		"Ability6"					"feminism"	
-
+        "ModelScale"				"1.3"
+        "override_hero"			    "npc_dota_hero_brewmaster"
+ 
+        "SoundSet"				 	"hero_brewmaster"
+ 
+        "Ability1"					"vine_creator" // Домашнее вино
+        "Ability2"					"vine_drinker" // Как делать самогон?
+        "Ability3"					"goodbye" // До-свидание		
+        "Ability4"					"teachers_life" // Учительский стаж
+        "Ability5"                  "generic_hidden"							
+        "Ability6"					"feminism" // Равноправие
+ 
         "Ability17"		            "sirotkin_bonus"
+    }
+
+    "npc_dota_hero_kunkka"
+    {
+		"override_hero"				"npc_dota_hero_kunkka"
+
+		"SoundSet"					"hero_kunkka"
+
+		"AttributeBaseStrength"			"25"
+		"AttributeStrengthGain"			"2.1"
+		"AttributeBaseIntelligence"		"22"
+       	"AttributeIntelligenceGain"		"1.8"
+       	"AttributeBaseAgility"			"18"
+       	"AttributeAgilityGain"			"1.8"
+
+       	"Ability1"					"axe_berserkers_call"
+       	"Ability2"					"axe_counter_helix"
+       	"Ability3"					"skeleton_king_reincarnation"
+       	"Ability4"                  "zombie_spawn" // Хиросимские уроды
+       	"Ability5"                  "kunkka_ghostship" // Потопить подлодку
+       	"Ability6"                  "generic_hidden"
+
+       	"Ability10"                 "izotov_bonus_1"
+       	"Ability11"                 "izotov_bonus_2"
+       	"Ability12"                 "special_bonus_unique_kunkka_3"                               
+   	}
+
+	"npc_dota_hero_shredder"
+   	{
+		"override_hero"				"npc_dota_hero_shredder"
+
+		"SoundSet"					"hero_shredder"
+
+    	"Ability1"					"tank" // Танк!
+   	}
+
+   	"npc_dota_hero_alchemist"
+	{
+		"override_hero"				"npc_dota_hero_alchemist"
+
+		"SoundSet"					"hero_lina"	  
+	}
+
+	"npc_dota_hero_dawnbreaker"
+	{
+		"override_hero"				"npc_dota_hero_dawnbreaker"
+
+		"SoundSet"					"hero_dawnbreaker"	  
+	}
+	// REAL LIFE PEOPLE END
+
+	// REAL LIFE KRUTOU PEOPLE
+	"npc_dota_hero_pudge"		
+	{
+		"override_hero"				"npc_dota_hero_pudge"
+
+		"SoundSet"					"hero_pudge"	  
+	}									
+	
+	"npc_dota_hero_earthshaker" 									
+	{
+		"override_hero"				"npc_dota_hero_earthshaker"
+
+		"SoundSet"					"hero_earthshaker"
+	}
+	
+	"npc_dota_hero_bristleback"									
+	{
+		"override_hero"				"npc_dota_hero_bristleback"
+
+		"SoundSet"					"hero_bristleback"
+
+		"Ability5"					"chornobaivka"
+
+		"Ability7"					"zelensky_bonus"
+		"Ability8"					"zelensky_bonus_2"
+	}
+	// REAL LIFE KRUTOU END
+
+	// MA BOYS
+	"npc_dota_hero_rubick"
+	{
+		"override_hero"				"npc_dota_hero_rubick"
+
+		"SoundSet"					"hero_rubick"
+
+		"Ability4"					"keril_umn"
+
+		"Ability7"					"keril_bonus"
+	}
+
+	"npc_dota_hero_antimage"
+	{
+ 		"override_hero"           	"npc_dota_hero_antimage"
+		"DisableWearables" 			"1"
+		"model" 					"models/heroes/antimage_female/antimage_female.vmdl"
+ 
+		"SoundSet"				  	"hero_antimage"
+ 
+		"Ability2"					"pudge_meat_hook"
+		"Ability3"					"meepo_earthbind"
+		"Ability4"                  "nekit_suicide"
 		
-		"VisionNighttimeRange"      "1800"
-   }
+		"Ability17"                 "nekit_bonus_1"
+		"Ability18"                 "nekit_bonus_2"                                 
+	}
 
-   "npc_dota_hero_undying"
-   {
-		"AbilityLayout"			  	"6"
+	"npc_dota_hero_dragon_knight"
+	{
+		"override_hero"           	"npc_dota_hero_dragon_knight"
+	}
+	// MA BOYS END
 
+	// VIMESHLENY
+	"npc_dota_hero_sniper"
+	{
+       	"override_hero"				"npc_dota_hero_sniper"
+
+      	 "SoundSet"					"hero_sniper"
+
+       	"Ability1"					"bounty_hunter_wind_walk"
+       	"Ability2"					"zoldaten_spawn"
+       	"Ability3"					"abaddon_frostmourne"
+
+       	"Ability10"                 "zoldaten_bonus"                                 
+	}
+
+	"npc_dota_hero_undying"
+   	{
 		"override_hero"           	"npc_dota_hero_undying"
 
 		"SoundSet"				  	"hero_undying"
 		
-		"Ability2"					"pudge_rot"
-
-		"VisionNighttimeRange"      "1800"                                
-   }
-
-   "npc_dota_hero_antimage"
-   {
-        "AbilityLayout"			  	"6"
-
-        "override_hero"           	"npc_dota_hero_antimage"
-        "DisableWearables" 			"1"
-        "model" 					"models/heroes/antimage_female/antimage_female.vmdl"
-
-        "SoundSet"				  	"hero_antimage"
-
-        "Ability2"					"pudge_meat_hook"
-        "Ability3"					"meepo_earthbind"
-        "Ability4"                  "nekit_suicide"
-
-        "Ability17"                 "nekit_bonus_1"
-        "Ability18"                 "nekit_bonus_2"
-
-        "VisionNighttimeRange"       "1800"                                    
-   }
-
+		"Ability2"					"pudge_rot"                             
+   	}
 
    "npc_dota_hero_techies"
-   {
-		"AbilityLayout"			  	"6"
+	{
 		"DisableWearables" 			"1"
 		"model"   					"models/items/techies/techies_ti9_immortal_remote_mine/techies_ti9_immortal_remote_mine.vmdl"
 
@@ -118,11 +162,10 @@
 		"VersusScale"				"0.650000"
 		"LoadoutScale"				"0.600000"
 
-		"SoundSet"				  	"hero_antimage"
+		"SoundSet"				  	"hero_wisp"
 		
 		"Ability2"					"gyrocopter_homing_missile"
 		"Ability3"					"techies_suicide"
-       
-		"VisionNighttimeRange"       "1800"
-   }
+   	}
+   // VIMESHLENY END
 }

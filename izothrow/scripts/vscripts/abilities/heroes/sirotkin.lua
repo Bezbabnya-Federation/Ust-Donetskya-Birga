@@ -75,3 +75,7 @@ function modifier_sirotkin_teachers_life:OnTakeDamage (event)
         end
     end
 end
+
+-- teachers_life end
+
+goodbye = class({})

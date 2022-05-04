@@ -24,9 +24,11 @@ function Precache( context )
 		model = {
 			"item_treasure_chest",
 			"item_bag_of_gold",
+
 			"npc_boat_1",
 			"npc_boat_2",
 			"npc_boat_3",
+
 			"npc_dota_creature_basic_zombie",
 			"npc_dota_creature_berserk_zombie",
 			"npc_dota_treasure_courier",
@@ -34,6 +36,7 @@ function Precache( context )
 
 		soundfile = {
 			"soundevents/heroes/zoldaten.vsndevts",
+			
 		  	"soundevents/game_sound_events.vsndevts",
 		},
 

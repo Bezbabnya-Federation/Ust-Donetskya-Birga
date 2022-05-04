@@ -98,15 +98,39 @@
 
 		// ПРЕДМЕТЫ
 
-		// ПЕРСОНАЖИ
-		"npc_dota_hero_antimage"										"Некит"
-		"npc_dota_hero_brewmaster"										"Сироткин"
-		"npc_dota_hero_kunkka"											"Изотов"
-		"npc_dota_hero_rubick"											"Керил"
-		"npc_dota_hero_sniper"											"Эсэсовец"
-		"npc_dota_hero_undying" 										"Хиросимский урод"
-		"npc_dota_hero_techies"											"Мина Изотова"
-		"npc_dota_hero_shredder"										"Михалыч"
+
+		// ПЕРСОНАЖИ !!!
+		// REAL LIFE PEOPLE
+		"npc_dota_hero_brewmaster"										"Сироткин" // SIROTKIN
+		"npc_dota_hero_kunkka"											"Изотов" // IZOTOV
+		"npc_dota_hero_shredder"										"Михалыч" // MIXALICH
+		"npc_dota_hero_alchemist"										"Ирина Евгеньевна" // IRISHKA
+		"npc_dota_hero_dawnbreaker"										"Инна Федеровна" // INNA FEDEROVNA
+
+		// REAL LIFE KRUTOU PEOPLE
+		"npc_dota_hero_pudge"											"Соболев" // SOLOVEY
+		"npc_dota_hero_earthshaker" 									"Максим Кац" // KATS
+		"npc_dota_hero_bristleback"										"Зеленский" // ZELENSKY
+
+		// MA BOYS
+		"npc_dota_hero_rubick"											"Керил" // KERIL
+		"npc_dota_hero_antimage"										"Некит" // NEKIT
+		"npc_dota_hero_marcy"											"Жендос" // JENUA
+		"npc_dota_hero_meepo"											"Владик" // VLADOS
+		"npc_dota_hero_sven"											"Беуз" // BEVZ
+		"npc_dota_hero_axe"												"Мишаня" // MISHA
+		"npc_dota_hero_terrorblade"										"Саня" // SANYA
+		"npc_dota_hero_invoker"											"Руслан" // RUSLAN
+		"npc_dota_hero_ogre_magi"										"Донел" // DONEL
+		"npc_dota_hero_juggernaut"										"Артем" // ARTEM
+		"npc_dota_hero_dragon_knight"									"Артем Носырев" // ARTEMNOS
+		"npc_dota_hero_monkeyking"										"Владос" // VLADOS 
+			
+		// VIMESHLENY
+		"npc_dota_hero_sniper"											"Эсэсовец" // SSOVEC
+		"npc_dota_hero_undying"											"Хиросимский урод" // UROD
+		"npc_dota_hero_techies"											"Мина Изотова" // MINE
+		
 
 		// Юниты
 		"npc_izotov_mega_urod"											"Хиросимский урод уродливый"
@@ -115,6 +139,33 @@
 		"npc_tank_2"													"Т-90"
 		"npc_tank_3"													"Т-14 Армата"
 
+		/////////////////////////////////////////////////////////// СКИЛЫ //////////////////////////////////////////////////////////////////////////
+		// REAL LIFE PEOPLE
+		// Скиллы Сироткина
+		"DOTA_Tooltip_ability_vine_creator"								"Домашнее вино"
+		"DOTA_Tooltip_ability_vine_creator_Description"					"Имея богатый опыт в домашнем виноделии, Сироткин жадно хлещет свое крафтовое вино и получает от этого заряд бодрости."
+		"DOTA_Tooltip_ability_vine_drinker"								"Как делать самогон?"
+		"DOTA_Tooltip_ability_vine_drinker_Description"					"Опытный винодел Сироткин показывает неопытным юнцам как правильно делать вино."
+		"DOTA_Tooltip_ability_goodbye"									"До-свидание!"
+		"DOTA_Tooltip_ability_goodbye_Description"						"Прощаясь со своими оппонентами, Сироткин яростно выпинывает их."
+		"DOTA_Tooltip_ability_teachers_life"							"Учительский стаж"
+		"DOTA_Tooltip_ability_teachers_life_Description"				"Учительский стаж Сироткина больше 25 лет. Поэтому сила его способностей превышает силу обычного человека."
+		"DOTA_Tooltip_ability_feminism"									"Равноправие!"
+		"DOTA_Tooltip_ability_feminism_Description"						"Сироткин неистово считает, что женщины и люди равны."
+
+		"DOTA_Tooltip_ability_vine_creator_lore"						"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
+		"DOTA_Tooltip_ability_vine_drinker_lore"						"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
+		"DOTA_Tooltip_ability_goodbye_lore"								"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
+		"DOTA_Tooltip_ability_teachers_life_lore"						"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
+		"DOTA_Tooltip_ability_feminism_lore"							"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
+
+		"DOTA_Tooltip_ability_teachers_life_damage"						"%ОТРАЖАЕМЫЙ УРОН:"
+		"DOTA_Tooltip_ability_teachers_life_radius"						"РАДИУС:"
+		"DOTA_Tooltip_ability_goodbye_crit_multiplier"					"%КРИТИЧЕСКИЙ УРОН:"
+		"DOTA_Tooltip_ability_goodbye_slow_duration"					"ДЛИТЕЛЬНОСТЬ ЗАМЕДЛЕНИЯ:"
+		"DOTA_Tooltip_ability_goodbye_air_time"							"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_goodbye_move_slow"						"%ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+		
 		// Скиллы Азотова
 		"DOTA_Tooltip_ability_axe_berserkers_call" 						"Провокация уродов"
 		"DOTA_Tooltip_ability_axe_berserkers_call_Description" 			"Изотов приходит в ярость, от чего находящиеся рядом уроды бегут смотреть на его танцы."
@@ -143,6 +194,14 @@
 		"DOTA_Tooltip_ability_tank_damage"								"УРОН КОРАБЛЯ:"
 		"DOTA_Tooltip_ability_tank_duration"							"ДЛИТЕЛЬНОСТЬ КОРАБЛЯ:"
 
+		// REAL LIFE KRUTOU PEOPLE
+		// Скиллы Зеленского
+		"DOTA_Tooltip_ability_chornobaivka"								"Чорнобaiвка"
+		"DOTA_Tooltip_ability_chornobaivka_Description"					"Снова...Чорнобaiвка. Сколько уже можно?"
+		
+		"DOTA_Tooltip_ability_chornobaivka_lore"						"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
+
+		// MA BOYS
 		// Скиллы Некита
 		"DOTA_Tooltip_ability_meepo_earthbind" 							"Рыболовная сеть"
 		"DOTA_Tooltip_ability_meepo_earthbind_Description" 				"Поймав противника, Никита связывает жертву, чтобы она не сбежала."
@@ -187,32 +246,5 @@
 		"DOTA_Tooltip_ability_undying_decay_Description" 				"Урод аплодирует врагу, отнимая у него силу и нанося урон"
 		"DOTA_Tooltip_ability_undying_tombstone" 						"Больше уродов!"
 		"DOTA_Tooltip_ability_undying_tombstone_Description" 			"Урод призывает надгробие, откуда сочатся толпы страшных уродов, которые бегут аплодировать противнику!"
-
-		// Скиллы Сироткина
-		"DOTA_Tooltip_ability_vine_creator"								"Домашнее вино"
-		"DOTA_Tooltip_ability_vine_creator_Description"					"Имея богатый опыт в домашнем виноделии, Сироткин жадно хлещет свое крафтовое вино и получает от этого заряд бодрости."
-		"DOTA_Tooltip_ability_vine_drinker"								"Как делать самогон?"
-		"DOTA_Tooltip_ability_vine_drinker_Description"					"Опытный винодел Сироткин показывает неопытным юнцам как правильно делать вино."
-		"DOTA_Tooltip_ability_goodbye"									"До-свидание!"
-		"DOTA_Tooltip_ability_goodbye_Description"						"Прощаясь со своими оппонентами, Сироткин яростно выпинывает их."
-		"DOTA_Tooltip_ability_teachers_life"							"Учительский стаж"
-		"DOTA_Tooltip_ability_teachers_life_Description"				"Учительский стаж Сироткина больше 25 лет. Поэтому сила его способностей превышает силу обычного человека."
-		"DOTA_Tooltip_ability_feminism"									"Равноправие!"
-		"DOTA_Tooltip_ability_feminism_Description"						"Сироткин неистово считает, что женщины и люди равны."
-
-		"DOTA_Tooltip_ability_vine_creator_lore"						"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
-		"DOTA_Tooltip_ability_vine_drinker_lore"						"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
-		"DOTA_Tooltip_ability_goodbye_lore"								"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
-		"DOTA_Tooltip_ability_teachers_life_lore"						"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
-		"DOTA_Tooltip_ability_feminism_lore"							"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
-
-		"DOTA_Tooltip_ability_teachers_life_damage"						"%ОТРАЖАЕМЫЙ УРОН:"
-		"DOTA_Tooltip_ability_teachers_life_radius"						"РАДИУС:"
-		"DOTA_Tooltip_ability_goodbye_crit_multiplier"					"%КРИТИЧЕСКИЙ УРОН:"
-		"DOTA_Tooltip_ability_goodbye_slow_duration"					"ДЛИТЕЛЬНОСТЬ ЗАМЕДЛЕНИЯ:"
-		"DOTA_Tooltip_ability_goodbye_air_time"							"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
-		"DOTA_Tooltip_ability_goodbye_move_slow"						"%ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
 	}
 }
-
-
