@@ -346,15 +346,13 @@ function IzothrowGameMode:GatherAndRegisterValidTeams()
 	end
 
 	local numTeams = TableCount(foundTeams)
-	-- print( "GatherValidTeams - Found spawns for a total of " .. numTeams .. " teams" )
-	
 	local foundTeamsList = {}
 	for t, _ in pairs( foundTeams ) do
 		table.insert( foundTeamsList, t )
 	end
 
 	if numTeams == 0 then
-		-- print( "GatherValidTeams - NO team spawns detected, defaulting to GOOD/BAD" )
+
 		table.insert( foundTeamsList, DOTA_TEAM_GOODGUYS )
 		table.insert( foundTeamsList, DOTA_TEAM_BADGUYS )
 		numTeams = 2
@@ -364,12 +362,10 @@ function IzothrowGameMode:GatherAndRegisterValidTeams()
 
 	self.m_GatheredShuffledTeams = ShuffledList( foundTeamsList )
 
-	-- print( "Final shuffled team list:" )
 	for _, team in pairs( self.m_GatheredShuffledTeams ) do
 		print( " - " .. team .. " ( " .. GetTeamName( team ) .. " )" )
 	end
 
-	-- print( "Setting up teams:" )
 	for team = 0, (DOTA_TEAM_COUNT-1) do
 		local maxPlayers = 0
 		if ( nil ~= TableFindKey( foundTeamsList, team ) ) then

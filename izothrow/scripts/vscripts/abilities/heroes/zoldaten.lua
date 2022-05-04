@@ -41,5 +41,5 @@ function zoldaten_spawn:OnSpellStart()
     end
 
     self:GetCaster():Stop()
-    self:GetCaster():EmitSound("zoldatenspawn")
+    self:GetCaster():EmitSound("izothrow.zoldatenspawn")
 end
