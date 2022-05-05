@@ -32,16 +32,24 @@
        	"AttributeBaseAgility"			"18"
        	"AttributeAgilityGain"			"1.8"
 
-       	"Ability1"					"axe_berserkers_call"
+       	"Ability1"					"agressive"
        	"Ability2"					"axe_counter_helix"
-       	"Ability3"					"skeleton_king_reincarnation"
-       	"Ability4"                  "zombie_spawn" // Хиросимские уроды
-       	"Ability5"                  "kunkka_ghostship" // Потопить подлодку
-       	"Ability6"                  "generic_hidden"
+       	"Ability3"                  "zombie_spawn" // Хиросимские уроды
+       	"Ability4"                  "kunkka_ghostship" // Потопить подлодку
+       	"Ability5"                  "death_passive" // Мертв по документам
+		"Ability6"					"generic_hidden"
 
-       	"Ability10"                 "izotov_bonus_1"
-       	"Ability11"                 "izotov_bonus_2"
-       	"Ability12"                 "special_bonus_unique_kunkka_3"                               
+		"Ability12"				"talent_zombie_spawn_2"
+		"Ability13"				"talent_agressive_1"
+   
+		"Ability14"				"talent_zombie_spawn_1"
+		"Ability15"				""
+   
+		"Ability16"				""
+		"Ability17"				"talent_zombie_spawn_3"
+   
+		"Ability18"     "special_bonus_unique_kunkka_3"          
+		"Ability19"		"special_bonus_cooldown_reduction_25"                     
    	}
 
 	"npc_dota_hero_shredder"
@@ -73,7 +81,14 @@
 	{
 		"override_hero"				"npc_dota_hero_pudge"
 
-		"SoundSet"					"hero_pudge"	  
+		"SoundSet"					"hero_pudge"
+
+		"Ability4"			"generic_hidden"
+		"Ability5"			"generic_hidden"
+		"Ability6"			"Vernon_silence"
+		"Ability25"			""
+
+		"Ability17"		"talent_krik"
 	}									
 	
 	"npc_dota_hero_earthshaker" 									
@@ -89,24 +104,29 @@
 
 		"SoundSet"					"hero_bristleback"
 
-		"Ability5"					"chornobaivka"
+		//"Ability5"					"chornobaivka"
 
-		"Ability7"					"zelensky_bonus"
-		"Ability8"					"zelensky_bonus_2"
+		//"Ability14"					"zelensky_bonus"
+		//"Ability15"					"zelensky_bonus_2"
 	}
 	// REAL LIFE KRUTOU END
 
 	// MA BOYS
-	"npc_dota_hero_rubick"
-	{
-		"override_hero"				"npc_dota_hero_rubick"
-
-		"SoundSet"					"hero_rubick"
-
-		"Ability4"					"keril_umn"
-
-		"Ability7"					"keril_bonus"
-	}
+	//"npc_dota_hero_rubick"
+	//{
+	//	"override_hero"				"npc_dota_hero_rubick"
+//
+	//	"SoundSet"					"hero_rubick"
+//
+	//	"Ability1"					"generic_hidden"
+	//	"Ability2"					"generic_hidden"
+	//	"Ability3"					"generic_hidden"
+	//	"Ability4"					"keril_umn"
+	//	"Ability5"					"generic_hidden"
+	//	"Ability6"					"generic_hidden"
+//
+	//	"Ability25"					"keril_bonus"
+//	}
 
 	"npc_dota_hero_antimage"
 	{

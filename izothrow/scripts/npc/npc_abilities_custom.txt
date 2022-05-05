@@ -592,6 +592,57 @@
 	// Sirotkin's Ability End
 
 	// IZOTOV ABILITY START
+	"agressive"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/heroes/izotov.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityTextureName" 			"Izotov/pilotka"
+		"AbilityCastPoint"				"0.4"
+		"AbilityCooldown"				"18 17 16 15"
+		"AbilityManaCost"				"50 60 70 80"
+		"HasShardUpgrade"				"1"	
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"600"
+				"LinkedSpecialBonus"		"talent_agressive_1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"30"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"2.0 2.4 2.8 3.2"
+			}	
+		}
+	}
+
+	"talent_agressive_1"
+	{
+		"BaseClass"						"special_bonus_undefined"														
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"100"
+			}			
+		}
+	}
+
 	"zombie_spawn"
 	{
 		"BaseClass"							"ability_lua"
@@ -643,21 +694,7 @@
 		}
 	}
 
-	"izotov_bonus_1"
-	{
-		"BaseClass"						"special_bonus_undefined"														
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"value"						"0"
-			}
-		}
-	}
-	"izotov_bonus_2"
+	"talent_zombie_spawn_1"
 	{
 		"BaseClass"						"special_bonus_undefined"														
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
@@ -672,7 +709,7 @@
 		}
 	}
 
-	"izotov_bonus_3"
+	"talent_zombie_spawn_2"
 	{
 		"BaseClass"						"special_bonus_undefined"														
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
@@ -687,42 +724,17 @@
 		}
 	}
 
-	"urod_ability"
+	"talent_zombie_spawn_3"
 	{
-		"BaseClass"           			"ability_lua"
-		"ScriptFile"					"abilities/heroes/izotov.lua"
-
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-
-		"AbilityTextureName"			"Izotov/urod_ability"
+		"BaseClass"						"special_bonus_undefined"														
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"10 15 20 25"
-			}
-
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_attackspeed"			"10 20 30 40"
-			}
-
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_hp_regen"			"4 8 12 16"
-			}
-
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"1200"
+				"var_type"					"FIELD_FLOAT"
+				"value"						"0"
 			}
 		}
 	}
@@ -821,6 +833,65 @@
 			}
 		}
 	}
+
+	"death_passive"
+	{
+
+		"BaseClass"						"ability_lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"izotov/voin"
+		"ScriptFile"					"abilities/heroes/izotov.lua"
+		"MaxLevel"						"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"chance"							"15"
+			}
+		}
+	}
+
+	"urod_ability"
+	{
+		"BaseClass"           			"ability_lua"
+		"ScriptFile"					"abilities/heroes/izotov.lua"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		"AbilityTextureName"			"Izotov/urod_ability"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage"				"10 15 20 25"
+			}
+
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_attackspeed"			"10 20 30 40"
+			}
+
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_hp_regen"			"4 8 12 16"
+			}
+
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"1200"
+			}
+		}
+	}
 	// IZOTOV ABILITY END
 
 	// MIXA ABILITY START
@@ -897,33 +968,33 @@
 		{
 			"01"
 			{
-				"var_type"            "FIELD_INTEGER"
-				"damage"            "175 200 225 250"
+				"var_type"            	"FIELD_INTEGER"
+				"damage"           	  	"175 200 225 250"
 			}
 
 			"02"
 			{
-				"var_type"            "FIELD_FLOAT"
-				"int_multi"           "1 1.25 1.5 1.75"
+				"var_type"            	"FIELD_FLOAT"
+				"int_multi"           	"1 1.25 1.5 1.75"
 				"LinkedSpecialBonus"	"zelensky_bonus_2"
 			}
 
 			"03"
 			{
-				"var_type"            "FIELD_INTEGER"
+				"var_type"            	"FIELD_INTEGER"
 				"radius"            	"175"
 			}
 
 			"04"
 			{
-				"var_type"            "FIELD_INTEGER"
+				"var_type"            	"FIELD_INTEGER"
 				"target_radius"         "425"
 			}
 
 			"05"
 			{
-				"var_type"            "FIELD_INTEGER"
-				"blasts"            "9 12 15 18"
+				"var_type"            	"FIELD_INTEGER"
+				"blasts"            	"9 12 15 18"
 				"LinkedSpecialBonus"	"zelensky_bonus"
 			}
 		}
@@ -959,6 +1030,46 @@
 		}
 	}
 	// ZELENSKY ABILITY END
+
+	// SOLOVEY START
+	"krik"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/heroes/solovey.lua"
+		"AbilityTextureName"			"Solovey/Krik"	
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"	
+		"AbilityCooldown"				"80"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityManaCost"				"150 200 250"
+		"AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES" 
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{	
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"6 8 12"
+			}
+		}
+	}
+
+	"talent_krik"
+	{
+		"BaseClass"						"special_bonus_undefined"														
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"0"
+			}			
+		}
+	}
 	// REAL LIFE KRUTOU PEOPLE END
 
 	// MA BOYS

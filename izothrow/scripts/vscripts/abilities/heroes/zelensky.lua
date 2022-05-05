@@ -1,6 +1,6 @@
-LinkLuaModifier("modifier_chornobaivka", "abilities/heroes/megumin.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_chornobaivka_immunity", "abilities/heroes/megumin.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_chornobaivka_debuff", "abilities/heroes/megumin.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_chornobaivka", "abilities/heroes/zelensky.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_chornobaivka_immunity", "abilities/heroes/zelensky.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_chornobaivka_debuff", "abilities/heroes/zelensky.lua", LUA_MODIFIER_MOTION_NONE)
 
 chornobaivka = class({})
 
@@ -24,8 +24,10 @@ function chornobaivka:OnAbilityPhaseStart()
 	if not IsServer() then return end
 	self.channel_duration = self:GetChannelTime()
 	local fImmuneDuration = self.channel_duration
+	
 	self:GetCaster():AddNewModifier( self:GetCaster(), self, "modifier_chornobaivka_immunity", { duration = fImmuneDuration } )
 	self.nPreviewFX = ParticleManager:CreateParticle( "particles/booom/1.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
+	
 	ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetCaster():GetOrigin(), true )
 	ParticleManager:SetParticleControl( self.nPreviewFX, 1, Vector( 250, 250, 250 ) )
 	ParticleManager:SetParticleControl( self.nPreviewFX, 15, Vector( 176, 224, 230 ) )
@@ -45,7 +47,7 @@ function chornobaivka:OnSpellStart()
 	if self:GetCaster():HasScepter() then
 		self:GetCaster():SetMana(self:GetCaster():GetMana() - self.mana)
 	end
-	EmitSoundOn("megumin", self:GetCaster())
+	-- EmitSoundOn("", self:GetCaster())
 end
 
 function chornobaivka:OnChannelFinish(bInterrupted)
@@ -53,10 +55,10 @@ function chornobaivka:OnChannelFinish(bInterrupted)
     if self.nPreviewFX then
 		ParticleManager:DestroyParticle( self.nPreviewFX, false )
 	end
-	self:GetCaster():StopSound("megumin")
+	-- self:GetCaster():StopSound("")
 	self:GetCaster():RemoveModifierByName("modifier_chornobaivka_immunity")
 	if not self:GetCaster():HasShard() then
-		self:GetCaster():AddNewModifier( self:GetCaster(), self, "modifier_birzha_stunned", { duration = 3 } )
+		self:GetCaster():AddNewModifier( self:GetCaster(), self, "modifier_izothrow_stunned", { duration = 3 } )
 	end 
 end
 
@@ -95,6 +97,7 @@ function chornobaivka:OnChannelThink( flInterval )
 	if self.flNextCast >= self.interval  then
 		local nMaxAttempts = 7
 		local nAttempts = 0
+		
 		local vPos = nil
 		repeat
 			vPos = self:GetCaster():GetOrigin() + RandomVector( RandomInt( 50, self.effect_radius ) )
@@ -138,6 +141,7 @@ function modifier_chornobaivka:OnCreated(kv)
 		self.blast_damage = self:GetAbility():GetSpecialValueFor( "blast_damage" )
 	end
 	self:StartIntervalThink( self.delay )
+	
 	local nFXIndex = ParticleManager:CreateParticle( "particles/booom/1.vpcf", PATTACH_CUSTOMORIGIN, nil )
 	ParticleManager:SetParticleControl( nFXIndex, 0, self:GetParent():GetOrigin() )
 	ParticleManager:SetParticleControl( nFXIndex, 1, Vector( self.radius, self.delay, 1.0 ) )
@@ -149,12 +153,15 @@ end
 function modifier_chornobaivka:OnIntervalThink()
 	if not IsServer() then return end
 	local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_techies/techies_blast_off.vpcf", PATTACH_CUSTOMORIGIN, nil )
+	
 	ParticleManager:SetParticleControl( nFXIndex, 0, self:GetParent():GetOrigin() )
 	ParticleManager:SetParticleControl( nFXIndex, 1, Vector ( self.radius, self.radius, self.radius ) )
 	ParticleManager:SetParticleControl( nFXIndex, 15, Vector( 175, 238, 238 ) )
 	ParticleManager:SetParticleControl( nFXIndex, 16, Vector( 1, 0, 0 ) )
 	ParticleManager:ReleaseParticleIndex( nFXIndex )
+	
 	EmitSoundOn( "Hero_Techies.Suicide", self:GetParent() )
+	
 	local enemies = FindUnitsInRadius( self:GetParent():GetTeamNumber(), self:GetParent():GetOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false )
 	for _,enemy in pairs( enemies ) do
 		if enemy ~= nil and enemy:IsInvulnerable() == false then

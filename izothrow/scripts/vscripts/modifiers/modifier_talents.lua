@@ -28,9 +28,13 @@ sirotkin_bonus = {
     AllowIllusionDuplicate = function() return true end,
 }
 
-izotov_bonus_1 = class ({})
+-- izotov
+-- izotov
+-- izotov
 
-izotov_bonus_1 = {
+talent_zombie_spawn_1 = class ({})
+
+talent_zombie_spawn_1 = {
     IsHidden = function() return true end,
     IsPurgable = function() return false end,
     IsDebuff = function() return false end,
@@ -38,9 +42,9 @@ izotov_bonus_1 = {
     AllowIllusionDuplicate = function() return true end,
 }
 
-izotov_bonus_2 = class ({})
+talent_zombie_spawn_2 = class ({})
 
-izotov_bonus_2 = {
+talent_zombie_spawn_2 = {
     IsHidden = function() return true end,
     IsPurgable = function() return false end,
     IsDebuff = function() return false end,
@@ -48,15 +52,19 @@ izotov_bonus_2 = {
     AllowIllusionDuplicate = function() return true end,
 }
 
-izotov_bonus_3 = class ({})
+talent_zombie_spawn_3 = class ({})
 
-izotov_bonus_3 = {
+talent_zombie_spawn_3 = {
     IsHidden = function() return true end,
     IsPurgable = function() return false end,
     IsDebuff = function() return false end,
     RemoveOnDeath = function() return false end,
     AllowIllusionDuplicate = function() return true end,
 }
+
+-- izotov
+-- izotov
+-- izotov
 
 nekit_bonus_1 = class ({})
 
@@ -91,6 +99,14 @@ zelensky_bonus_2 = {
 zelensky_bonus = class ({})
 
 zelensky_bonus = {
+    IsHidden = function() return true end,
+    IsPurgable = function() return false end,
+    IsDebuff = function() return false end,
+    RemoveOnDeath = function() return false end,
+    AllowIllusionDuplicate = function() return true end,
+}
+
+talent_krik = {
     IsHidden = function() return true end,
     IsPurgable = function() return false end,
     IsDebuff = function() return false end,

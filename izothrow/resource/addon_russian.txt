@@ -78,13 +78,16 @@
 		"DOTA_Tooltip_Ability_item_dust"								"Dust of Appearance (изм.)"
 		"DOTA_Tooltip_Ability_item_ward_sentry"							"Sentry Ward (изм.)"
 		"DOTA_GameMode_15"												"Изотроу"
-		// НЕ ТРОГАТЬ (КОНЕЦ)
 
-		// Прочее
-		"DOTA_Tooltip_modifier_zombie_spawn"							"Хиросимский концерт"
-		"DOTA_Tooltip_modifier_zombie_spawn_Description"				"Тот самый хиросимский концерт Изотова, где он танцевал уродам."
-		"DOTA_Tooltip_Ability_izotov_bonus_1"							""
-		"DOTA_Tooltip_Ability_izotov_bonus_2"							""
+		"DOTA_Tooltip_modifier_izothrow_stunned"						"Оглушение"
+		"DOTA_Tooltip_modifier_izothrow_stunned_purge"					"Оглушение"
+		"DOTA_Tooltip_modifier_knockback"								"Оглушение"
+		"DOTA_Tooltip_modifier_izothrow_silenced"						"Безмолвие"
+		"DOTA_Tooltip_modifier_izothrow_bashed"							"Оглушение"
+		"Dota_Tooltip_modifier_izothrow_invul"							"Неуязвим"
+
+		"dota_hud_error_not_your_unit" "Используйте на своего юнита"
+		// НЕ ТРОГАТЬ (КОНЕЦ)
 
 		// ПРЕДМЕТЫ (ПОДЫ)
 		"DOTA_Tooltip_Ability_item_brusco_minican"						"Brusco Minican"
@@ -167,23 +170,58 @@
 		"DOTA_Tooltip_ability_goodbye_move_slow"						"%ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
 		
 		// Скиллы Азотова
-		"DOTA_Tooltip_ability_axe_berserkers_call" 						"Провокация уродов"
-		"DOTA_Tooltip_ability_axe_berserkers_call_Description" 			"Изотов приходит в ярость, от чего находящиеся рядом уроды бегут смотреть на его танцы."
+
+		"DOTA_Tooltip_ability_agressive" 								"Спровоцировать уродов"
+		"DOTA_Tooltip_ability_agressive_Description" 					"Изотов приходит в ярость, от чего находящиеся рядом уроды бегут смотреть на его танцы."
 		"DOTA_Tooltip_ability_axe_counter_helix" 						"Станцевать уродам"
 		"DOTA_Tooltip_ability_axe_counter_helix_Description" 			"Под аплодисменты уродов Изотов начинает жестко флексить."
-		"DOTA_Tooltip_ability_skeleton_king_reincarnation" 				"Мертв по документам"
-		"DOTA_Tooltip_ability_skeleton_king_reincarnation_Description" 	"Глупцы! Изотов давно мертв по документам. Как можно убить того, кто уже мертв?"
+		"DOTA_Tooltip_ability_death_passive"			 				"Мертв по документам"
+		"DOTA_Tooltip_Ability_death_passive_Description" 				"Глупцы! Изотов давно мертв по документам. Как можно убить того, кто уже мертв?\nПри смерти имеет шанс не отдаться врагу"
 		"DOTA_Tooltip_ability_zombie_spawn"								"Хиросимские уроды"
 		"DOTA_Tooltip_ability_zombie_spawn_Description"					"Когда-то давно Изотов танцевал тем самым хиросимским уродам и теперь их души преследуют его, охраняя и оберегая. После убийства появляется самый уродливый урод."
 		"DOTA_Tooltip_ability_kunkka_ghostship" 						"Потопить подлодку"
 		"DOTA_Tooltip_ability_kunkka_ghostship_Description" 			"Старый моряк Изотов призывает свою верную подлодку и безжалостно топит ее вместе с врагами."
 
-		"DOTA_Tooltip_ability_kunkka_ghostship_lore"					"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
+		"DOTA_Tooltip_Ability_urod_ability" 							"Уродливость"
+		"DOTA_Tooltip_Ability_urod_ability_Description" 				"Дарует всем в радиусе %radius% дополнительный урон, скорость атаки и регенерацию здоровья"
+
+
+		"DOTA_Tooltip_ability_agressive_lore"							"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
 		"DOTA_Tooltip_ability_zombie_spawn_lore"						"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
-		
+		"DOTA_Tooltip_ability_kunkka_ghostship_lore"					"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
+		"DOTA_Tooltip_ability_death_passive_lore"						"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
+		"DOTA_Tooltip_ability_urod_ability_lore"						"Данный герой создан благодаря <font color='#fffc00'>Керилу</font>"
+
+
+		"DOTA_Tooltip_Ability_agressive_bonus_armor"					"ДОП. БРОНЯ:"
+		"DOTA_Tooltip_Ability_agressive_duration"						"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_Ability_agressive_radius"							"РАДИУС:"
+
+		"DOTA_Tooltip_Ability_urod_ability_bonus_damage" 				"%ДОП. УРОН:"
+		"DOTA_Tooltip_Ability_urod_ability_bonus_attackspeed" 			"ДОП. СКОРОСТЬ АТАКИ:"
+		"DOTA_Tooltip_Ability_urod_ability_bonus_hp_regen" 				"ДОП. РЕГЕНЕРАЦИЯ ЗДОРОВЬЯ:"
+
+		"DOTA_Tooltip_Ability_death_passive_chance" 					"%ШАНС:"
+
 		"DOTA_Tooltip_Ability_zombie_spawn_zombies_count" 				"КОЛ-ВО ЗОМБИ:"
 		"DOTA_Tooltip_Ability_zombie_spawn_zombie_health" 				"ЗДОРОВЬЕ ЗОМБИ:"
 		"DOTA_Tooltip_Ability_zombie_spawn_zombie_damage" 				"УРОН ЗОМБИ:"
+
+		"DOTA_Tooltip_modifier_urod_ability" 							"Уродливость"
+		"DOTA_Tooltip_modifier_urod_ability_Description" 				"Усиливает скорость атаки, урон и регенерацию здоровья"
+
+
+		"DOTA_Tooltip_Ability_talent_zombie_spawn_1"					"Уродливые уроды вечны"
+		"DOTA_Tooltip_Ability_talent_zombie_spawn_2"					"Каждое 2 применение призывает уродливого урода"
+		"DOTA_Tooltip_Ability_talent_zombie_spawn_3"					"Много уродливых уродов"
+		"Dota_Tooltip_Ability_talent_agressive_1" 						"+100 к радиусу провокации"
+
+		"DOTA_Tooltip_modifier_zombie_spawn"							"Хиросимские уроды"
+		"DOTA_Tooltip_modifier_zombie_spawn_Description"				"Те самые хиросимские уроды с концерта Изотова."
+		"DOTA_Tooltip_modifier_movespeed_cap"							"Бешенство уродов"
+		"DOTA_Tooltip_modifier_movespeed_cap_Description"				"В бешенстве!"
+		"DOTA_Tooltip_modifier_agressive"								"Агрессия"
+		"DOTA_Tooltip_modifier_agressive_debuff"						"Агрессия"
 
 		// Скиллы Михалыча
 		"DOTA_Tooltip_ability_tank" 									"Вундервафля Михалыча"
